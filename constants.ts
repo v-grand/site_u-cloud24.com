@@ -1,5 +1,4 @@
 
-import React from 'react';
 import { Service, Translations } from './types.ts';
 import { WebIcon, ServerIcon, DataScienceIcon, AIAgentsIcon, ScrapingIcon, PipelinesIcon, IntegrationIcon, Web3Icon } from './components/ui/Icons.tsx';
 

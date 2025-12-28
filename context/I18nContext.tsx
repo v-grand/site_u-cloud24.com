@@ -1,6 +1,6 @@
 
 import React, { createContext, useState, useContext, useCallback } from 'react';
-import { Language, Translations } from '../types.ts';
+import { Language } from '../types.ts'; // Removed Translations
 import { I18N_STRINGS } from '../constants.ts';
 
 interface I18nContextType {
