@@ -71,6 +71,10 @@ const useGeminiContent = (serviceId: string, serviceTitle: string) => {
           },
         });
 
+        if (!response.text) {
+          throw new Error("Gemini API response text was empty or undefined.");
+        }
+
         const jsonText = response.text.trim();
         const parsedContent: ServiceContent = JSON.parse(jsonText);
         
