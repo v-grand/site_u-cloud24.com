@@ -1,12 +1,11 @@
 
 import { Service, Translations } from './types.ts';
-import { WebIcon, ServerIcon, DataScienceIcon, AIAgentsIcon, ScrapingIcon, PipelinesIcon, IntegrationIcon, Web3Icon } from './components/ui/Icons.tsx';
+import { WebIcon, ServerIcon, DataScienceIcon, ScrapingIcon, PipelinesIcon, IntegrationIcon, Web3Icon } from './components/ui/Icons.tsx';
 
 export const SERVICES: Service[] = [
   { id: 'web', titleKey: 'service_web_title', descriptionKey: 'service_web_desc', icon: WebIcon },
   { id: 'server', titleKey: 'service_server_title', descriptionKey: 'service_server_desc', icon: ServerIcon },
   { id: 'datascience', titleKey: 'service_ds_title', descriptionKey: 'service_ds_desc', icon: DataScienceIcon },
-  { id: 'ai-agents', titleKey: 'service_ai_title', descriptionKey: 'service_ai_desc', icon: AIAgentsIcon },
   { id: 'scraping', titleKey: 'service_scraping_title', descriptionKey: 'service_scraping_desc', icon: ScrapingIcon },
   { id: 'pipelines', titleKey: 'service_pipelines_title', descriptionKey: 'service_pipelines_desc', icon: PipelinesIcon },
   { id: 'integration', titleKey: 'service_integration_title', descriptionKey: 'service_integration_desc', icon: IntegrationIcon },
@@ -36,8 +35,6 @@ export const I18N_STRINGS: Translations = {
   service_server_desc: { en: 'Reliable and powerful virtual server infrastructure.', ru: 'Надежная и мощная инфраструктура виртуальных серверов.' },
   service_ds_title: { en: 'Data Science', ru: 'Data Science' },
   service_ds_desc: { en: 'Unlock insights from your data with advanced analytics.', ru: 'Извлекайте ценные сведения из данных с помощью передовой аналитики.' },
-  service_ai_title: { en: 'AI Agents', ru: 'ИИ Агенты' },
-  service_ai_desc: { en: 'Automate complex tasks with intelligent agents.', ru: 'Автоматизируйте сложные задачи с помощью интеллектуальных агентов.' },
   service_scraping_title: { en: 'Web Scraping', ru: 'Веб-скрапинг' },
   service_scraping_desc: { en: 'Efficient and ethical data extraction from the web.', ru: 'Эффективное и этичное извлечение данных из веба.' },
   service_pipelines_title: { en: 'Data Pipelines', ru: 'Data Pipelines' },
