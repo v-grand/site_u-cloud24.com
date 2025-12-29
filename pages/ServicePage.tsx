@@ -30,9 +30,6 @@ const ServicePage: React.FC<ServicePageProps> = ({ serviceId }) => {
           {t(serviceInfo.descriptionKey)}
         </p>
       </AnimatedElement>
-
-      {/* Removed AI-generated content sections (features, useCase) */}
-      {/* If you want to add static features or use cases, you would define them in constants.ts or a separate data file */}
     </div>
   );
 };

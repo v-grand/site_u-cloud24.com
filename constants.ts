@@ -21,8 +21,8 @@ export const I18N_STRINGS: Translations = {
   services: { en: 'Services', ru: 'Услуги' },
   
   // Hero Section
-  hero_title: { en: 'Unified Cloud & AI Ecosystem', ru: 'Единая экосистема облака и ИИ' },
-  hero_subtitle: { en: 'From scalable servers to autonomous AI agents, build your future with a platform designed for innovation and performance.', ru: 'От масштабируемых серверов до автономных ИИ-агентов — стройте свое будущее на платформе, созданной для инноваций и производительности.' },
+  hero_title: { en: 'Unified Cloud Ecosystem', ru: 'Единая облачная экосистема' },
+  hero_subtitle: { en: 'From scalable servers to powerful solutions, build your future with a platform designed for innovation and performance.', ru: 'От масштабируемых серверов до мощных решений — стройте свое будущее на платформе, созданной для инноваций и производительности.' },
   
   // Services Grid
   bento_title: { en: 'Our Services', ru: 'Наши Услуги' },
@@ -45,7 +45,7 @@ export const I18N_STRINGS: Translations = {
   service_web3_desc: { en: 'Build decentralized applications on the blockchain.', ru: 'Создавайте децентрализованные приложения на блокчейне.' },
 
   // Service Page
-  loading_content: { en: 'Generating service details with AI...', ru: 'Генерируем детали услуги с помощью ИИ...' },
+  loading_content: { en: 'Generating service details...', ru: 'Генерируем детали услуги...' },
   error_content: { en: 'Failed to load content. Please try again later.', ru: 'Не удалось загрузить контент. Пожалуйста, попробуйте позже.' },
   key_features: { en: 'Key Features', ru: 'Ключевые особенности' },
   real_world_use_case: { en: 'Real-World Use Case', ru: 'Пример использования' },
