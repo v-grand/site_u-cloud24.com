@@ -4,8 +4,11 @@ import Button from '../ui/Button.tsx';
 import LanguageSwitcher from '../ui/LanguageSwitcher.tsx';
 import { useI18n } from '../../context/I18nContext.tsx';
 
+// Define Page type locally or import if it's in a shared types file
+type Page = 'home' | 'service' | 'contacts';
+
 interface HeaderProps {
-  onNavigate: (page: 'home') => void;
+  onNavigate: (page: Page, serviceId?: string | null) => void;
 }
 
 const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
@@ -28,7 +31,7 @@ const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
           <div className="flex items-center space-x-4">
             <LanguageSwitcher />
             <div className="hidden sm:block">
-              <Button onClick={() => console.log('Registration started!')}>
+              <Button onClick={() => onNavigate('contacts')}> {/* Changed to navigate to contacts */}
                 {t('register_cta')}
               </Button>
             </div>

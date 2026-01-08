@@ -4,9 +4,10 @@ import { I18nProvider, useI18n } from './context/I18nContext.tsx';
 import Layout from './components/layout/Layout.tsx';
 import HomePage from './pages/HomePage.tsx';
 import ServicePage from './pages/ServicePage.tsx';
+import ContactsPage from './pages/ContactsPage.tsx'; // Import ContactsPage
 import { SERVICES } from './constants.ts';
 
-type Page = 'home' | 'service';
+type Page = 'home' | 'service' | 'contacts'; // Add 'contacts' to Page type
 
 const AppContent: React.FC = () => {
     const [currentPage, setCurrentPage] = useState<Page>('home');
@@ -29,8 +30,15 @@ const AppContent: React.FC = () => {
     }, [currentServiceId]);
 
     useEffect(() => {
-        const serviceName = currentService ? t(currentService.titleKey) : 'Services';
-        document.title = `U-Cloud 24 | ${serviceName}`;
+        let pageTitle = 'U-Cloud 24';
+        if (currentPage === 'service' && currentService) {
+            pageTitle = `U-Cloud 24 | ${t(currentService.titleKey)}`;
+        } else if (currentPage === 'contacts') {
+            pageTitle = `U-Cloud 24 | ${t('contacts_title')}`;
+        } else if (currentPage === 'home') {
+            pageTitle = `U-Cloud 24 | ${t('home')}`;
+        }
+        document.title = pageTitle;
     }, [currentPage, currentService, t]);
 
     return (
@@ -40,6 +48,7 @@ const AppContent: React.FC = () => {
                 {currentPage === 'service' && currentServiceId && (
                     <ServicePage serviceId={currentServiceId} />
                 )}
+                {currentPage === 'contacts' && <ContactsPage />} {/* Render ContactsPage */}
             </main>
         </Layout>
     );

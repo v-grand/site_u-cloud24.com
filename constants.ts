@@ -50,4 +50,9 @@ export const I18N_STRINGS: Translations = {
   key_features: { en: 'Key Features', ru: 'Ключевые особенности', pl: 'Kluczowe Funkcje' },
   real_world_use_case: { en: 'Real-World Use Case', ru: 'Пример использования', pl: 'Przykład Użycia w Rzeczywistym Świecie' },
   back_to_services: { en: 'Back to all services', ru: 'Назад ко всем услугам', pl: 'Wróć do wszystkich usług' },
+
+  // Contacts Page
+  contacts_title: { en: 'Contact Us', ru: 'Свяжитесь с нами', pl: 'Skontaktuj się z nami' },
+  contacts_description: { en: 'If you have any questions, feel free to reach out to us.', ru: 'Если у вас есть вопросы, не стесняйтесь обращаться к нам.', pl: 'Jeśli masz jakieś pytania, skontaktuj się z nami.' },
+  email_label: { en: 'Email', ru: 'Электронная почта', pl: 'E-mail' },
 };

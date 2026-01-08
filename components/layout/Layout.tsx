@@ -3,9 +3,12 @@ import React from 'react';
 import Header from './Header.tsx';
 import Footer from './Footer.tsx';
 
+// Define Page type locally or import if it's in a shared types file
+type Page = 'home' | 'service' | 'contacts';
+
 interface LayoutProps {
   children: React.ReactNode;
-  onNavigate: (page: 'home' | 'service', serviceId?: string | null) => void;
+  onNavigate: (page: Page, serviceId?: string | null) => void;
 }
 
 const Layout: React.FC<LayoutProps> = ({ children, onNavigate }) => {

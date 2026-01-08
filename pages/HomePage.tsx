@@ -6,8 +6,11 @@ import Button from '../components/ui/Button.tsx';
 import AnimatedElement from '../components/ui/AnimatedElement.tsx';
 import { useI18n } from '../context/I18nContext.tsx';
 
+// Define Page type locally or import if it's in a shared types file
+type Page = 'home' | 'service' | 'contacts';
+
 interface HomePageProps {
-  onNavigate: (page: 'service', serviceId: string) => void;
+  onNavigate: (page: Page, serviceId?: string | null) => void;
 }
 
 const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
@@ -29,7 +32,7 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
         </AnimatedElement>
         <AnimatedElement delay={400}>
           <div className="mt-10">
-            <Button onClick={() => console.log('Registration started!')}>
+            <Button onClick={() => onNavigate('contacts')}> {/* Changed to navigate to contacts */}
               {t('register_cta')}
             </Button>
           </div>
