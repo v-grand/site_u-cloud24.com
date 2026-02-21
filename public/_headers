@@ -1,0 +1,45 @@
+# Cloudflare Pages Headers Configuration
+# Security and Performance Optimization
+
+# Default headers for all files
+/*
+  # Security Headers
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  X-XSS-Protection: 1; mode=block
+  Referrer-Policy: strict-origin-when-cross-origin
+
+  # Performance Headers
+  Cache-Control: public, max-age=3600, must-revalidate
+
+# HTML files - shorter cache, must revalidate
+/*.html
+  Cache-Control: public, max-age=3600, must-revalidate
+  Content-Type: text/html; charset=utf-8
+
+# CSS and JavaScript - long cache (versioned by Vite)
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# JSON files - no cache (for API responses if added)
+/*.json
+  Cache-Control: public, max-age=3600, must-revalidate
+
+# Image files - moderate cache
+/images/*
+  Cache-Control: public, max-age=604800, must-revalidate
+
+# robots.txt and sitemap.xml - daily update
+/robots.txt
+  Cache-Control: public, max-age=86400
+
+/sitemap.xml
+  Cache-Control: public, max-age=86400
+
+# Favicon - long cache
+/favicon.ico
+  Cache-Control: public, max-age=31536000, immutable
+
+# Service worker (if added in future)
+/sw.js
+  Cache-Control: public, max-age=0, must-revalidate

@@ -1,0 +1,24 @@
+# Robots.txt for U-Cloud 24 - SEO Configuration
+# Allows search engines to index all pages
+
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /.git/
+Disallow: /node_modules/
+Disallow: *.map
+
+# Sitemap location
+Sitemap: https://u-cloud24.com/sitemap.xml
+
+# Crawl delay for respect to server resources
+Crawl-delay: 1
+
+# Specific rules for major search engines
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
