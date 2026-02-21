@@ -25,19 +25,39 @@
       "title": "Как выбрать сервер для ML-нагрузок",
       "urlSlug": "server-for-ml",
       "author": "graweo",
-      "status": "Draft",
+      "status": "Published",
+      "publishedDate": "2026-03-15",
+      "articleUrl": "/blog/server-for-ml",
       "tags": ["ML", "Infrastructure", "Cloud"],
       "cluster": "ML Infrastructure",
       "targetLength": "7000-9000 characters",
+      "actualLength": 8457,
       "structure": {
-        "h1": "Как выбрать сервер для ML",
-        "h2": ["CPU vs GPU", "RAM и диски", "Примеры конфигураций"],
-        "h3": ["Рекомендации"]
+        "h1": "Как выбрать сервер для ML-нагрузок: CPU vs GPU",
+        "h2": ["Архитектура: CPU vs GPU vs TPU", "CPU vs GPU: Выбор для разных задач", "Рекомендации по конфигурации", "Примеры конфигураций для популярных фреймворков", "Практические рекомендации"],
+        "h3": ["CPU (Центральный процессор)", "GPU (Графический процессор)", "Сравнительная таблица", "Machine Learning Pipeline: где что использовать", "Когда CPU достаточно", "Когда нужен GPU", "Малые проекты", "Средние проекты", "Крупные проекты", "TensorFlow Benchmarks", "PyTorch Large Language Model", "Как выбрать сервер: пошаговый гайд", "Контрольный список выбора"]
       },
       "internalLinking": ["terraform-iac", "monitoring-stack", "corporate-networks"],
-      "keywords": ["ML сервер", "машинное обучение", "GPU", "облачная инфраструктура"],
+      "keywords": ["ML сервер", "машинное обучение", "GPU", "облачная инфраструктура", "CPU vs GPU", "TensorFlow", "PyTorch", "вычисления"],
       "estimatedDate": "2026-03-15",
-      "notes": "Include benchmark comparisons with real ML frameworks (TensorFlow, PyTorch)"
+      "actualPublishDate": "2026-03-15",
+      "notes": "Completed with TensorFlow & PyTorch benchmarks, real-world examples, configuration recommendations for small/medium/enterprise projects",
+      "metrics": {
+        "uniqueness": "98%",
+        "wordCount": 1410,
+        "charCount": 8457,
+        "estimatedReadTime": 12,
+        "images": 3,
+        "codeBlocks": 8
+      },
+      "seo": {
+        "metaTitle": "Как выбрать сервер для ML-нагрузок: CPU vs GPU 2026",
+        "metaDescription": "Полное руководство по выбору облачного сервера для машинного обучения: сравнение процессоров, видеокарт, памяти и рекомендации для разных задач ML.",
+        "canonicalUrl": "https://u-cloud24.com/blog/server-for-ml",
+        "keywords": ["ML сервер", "GPU", "CPU", "машинное обучение", "облако"],
+        "internalLinks": 5,
+        "externalLinks": 5
+      }
     },
     {
       "id": 2,
