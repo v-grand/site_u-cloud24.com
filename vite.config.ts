@@ -4,8 +4,8 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
   plugins: [react()],
   build: {
-    // Optimize for production
-    minify: 'terser',
+    // Use esbuild minifier (built-in, no extra deps)
+    minify: 'esbuild',
     sourcemap: false,
     rollupOptions: {
       output: {
