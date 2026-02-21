@@ -29,11 +29,14 @@
 /images/*
   Cache-Control: public, max-age=604800, must-revalidate
 
-# robots.txt and sitemap.xml - daily update
+# robots.txt - daily update
 /robots.txt
+  Content-Type: text/plain; charset=utf-8
   Cache-Control: public, max-age=86400
 
+# sitemap.xml - daily update
 /sitemap.xml
+  Content-Type: application/xml; charset=utf-8
   Cache-Control: public, max-age=86400
 
 # Favicon - long cache
