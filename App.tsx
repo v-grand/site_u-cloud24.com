@@ -46,7 +46,7 @@ const AppContent: React.FC = () => {
             <main className={`transition-opacity duration-300 ${animationClass}`}>
                 {currentPage === 'home' && <HomePage onNavigate={navigateTo} />}
                 {currentPage === 'service' && currentServiceId && (
-                    <ServicePage serviceId={currentServiceId} />
+                    <ServicePage serviceId={currentServiceId} onNavigate={navigateTo} />
                 )}
                 {currentPage === 'contacts' && <ContactsPage />} {/* Render ContactsPage */}
             </main>
