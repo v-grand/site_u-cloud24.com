@@ -1,0 +1,576 @@
+{
+  "metadata": {
+    "name": "U-Cloud 24 Editorial Calendar",
+    "version": "1.0",
+    "created": "2026-02-21",
+    "updated": "2026-02-21",
+    "description": "Content calendar for blog articles on u-cloud24.com",
+    "totalArticles": 20,
+    "status_distribution": {
+      "Draft": 20,
+      "In Progress": 0,
+      "Published": 0
+    },
+    "priority_distribution": {
+      "High": 8,
+      "Medium": 9,
+      "Low": 3
+    }
+  },
+  "articles": [
+    {
+      "id": 1,
+      "priority": "High",
+      "section": "Cloud Servers",
+      "title": "Как выбрать сервер для ML-нагрузок",
+      "urlSlug": "server-for-ml",
+      "author": "graweo",
+      "status": "Published",
+      "publishedDate": "2026-03-15",
+      "articleUrl": "/blog/server-for-ml",
+      "tags": ["ML", "Infrastructure", "Cloud"],
+      "cluster": "ML Infrastructure",
+      "targetLength": "7000-9000 characters",
+      "actualLength": 8457,
+      "structure": {
+        "h1": "Как выбрать сервер для ML-нагрузок: CPU vs GPU",
+        "h2": ["Архитектура: CPU vs GPU vs TPU", "CPU vs GPU: Выбор для разных задач", "Рекомендации по конфигурации", "Примеры конфигураций для популярных фреймворков", "Практические рекомендации"],
+        "h3": ["CPU (Центральный процессор)", "GPU (Графический процессор)", "Сравнительная таблица", "Machine Learning Pipeline: где что использовать", "Когда CPU достаточно", "Когда нужен GPU", "Малые проекты", "Средние проекты", "Крупные проекты", "TensorFlow Benchmarks", "PyTorch Large Language Model", "Как выбрать сервер: пошаговый гайд", "Контрольный список выбора"]
+      },
+      "internalLinking": ["terraform-iac", "monitoring-stack", "corporate-networks"],
+      "keywords": ["ML сервер", "машинное обучение", "GPU", "облачная инфраструктура", "CPU vs GPU", "TensorFlow", "PyTorch", "вычисления"],
+      "estimatedDate": "2026-03-15",
+      "actualPublishDate": "2026-03-15",
+      "notes": "Completed with TensorFlow & PyTorch benchmarks, real-world examples, configuration recommendations for small/medium/enterprise projects",
+      "metrics": {
+        "uniqueness": "98%",
+        "wordCount": 1410,
+        "charCount": 8457,
+        "estimatedReadTime": 12,
+        "images": 3,
+        "codeBlocks": 8
+      },
+      "seo": {
+        "metaTitle": "Как выбрать сервер для ML-нагрузок: CPU vs GPU 2026",
+        "metaDescription": "Полное руководство по выбору облачного сервера для машинного обучения: сравнение процессоров, видеокарт, памяти и рекомендации для разных задач ML.",
+        "canonicalUrl": "https://u-cloud24.com/blog/server-for-ml",
+        "keywords": ["ML сервер", "GPU", "CPU", "машинное обучение", "облако"],
+        "internalLinks": 5,
+        "externalLinks": 5
+      }
+    },
+    {
+      "id": 2,
+      "priority": "High",
+      "section": "DevOps",
+      "title": "Terraform: управление инфраструктурой как кодом",
+      "urlSlug": "terraform-iac",
+      "author": "graweo",
+      "status": "Draft",
+      "tags": ["DevOps", "IaC", "Terraform"],
+      "cluster": "Terraform",
+      "targetLength": "8000-10000 characters",
+      "structure": {
+        "h1": "Terraform: управление инфраструктурой как кодом",
+        "h2": ["Архитектура IaC", "Модули", "CI/CD интеграция"],
+        "h3": ["Примеры конфигурации", "Best practices"]
+      },
+      "internalLinking": ["vault-secrets", "monitoring-stack", "corporate-networks"],
+      "keywords": ["Terraform", "Infrastructure as Code", "DevOps", "автоматизация"],
+      "estimatedDate": "2026-03-22",
+      "notes": "Code examples with HCL, AWS/Azure/GCP providers"
+    },
+    {
+      "id": 3,
+      "priority": "High",
+      "section": "Security",
+      "title": "Vault: безопасное управление секретами",
+      "urlSlug": "vault-secrets",
+      "author": "graweo",
+      "status": "Draft",
+      "tags": ["Security", "DevOps", "Vault"],
+      "cluster": "Vault",
+      "targetLength": "7500-9500 characters",
+      "structure": {
+        "h1": "Vault: безопасное управление секретами",
+        "h2": ["Secrets Engines", "Policies и RBAC", "Vault + Terraform интеграция"],
+        "h3": ["Encryption at rest", "Audit logging"]
+      },
+      "internalLinking": ["terraform-iac", "wazuh-siem", "corporate-networks"],
+      "keywords": ["Vault", "секреты", "безопасность", "шифрование"],
+      "estimatedDate": "2026-03-29",
+      "notes": "Focus on production setups with HA and auto-unseal"
+    },
+    {
+      "id": 4,
+      "priority": "High",
+      "section": "Security",
+      "title": "Wazuh: SIEM и безопасность облачной инфраструктуры",
+      "urlSlug": "wazuh-siem",
+      "author": "graweo",
+      "status": "Draft",
+      "tags": ["Security", "Monitoring", "SIEM"],
+      "cluster": "Monitoring & Security",
+      "targetLength": "8000-10000 characters",
+      "structure": {
+        "h1": "Wazuh: SIEM и безопасность облачной инфраструктуры",
+        "h2": ["Архитектура Wazuh", "Мониторинг угроз", "Установка и конфигурация"],
+        "h3": ["Правила обнаружения", "Реагирование на инциденты"]
+      },
+      "internalLinking": ["monitoring-stack", "vault-secrets"],
+      "keywords": ["Wazuh", "SIEM", "безопасность", "threat detection"],
+      "estimatedDate": "2026-04-05",
+      "notes": "Real-world threat detection rules and use cases"
+    },
+    {
+      "id": 5,
+      "priority": "High",
+      "section": "DevOps",
+      "title": "Полный стек мониторинга: Prometheus, Grafana, Loki",
+      "urlSlug": "monitoring-stack",
+      "author": "graweo",
+      "status": "Draft",
+      "tags": ["Monitoring", "DevOps", "Observability"],
+      "cluster": "Monitoring",
+      "targetLength": "9000-11000 characters",
+      "structure": {
+        "h1": "Полный стек мониторинга: Prometheus, Grafana, Loki",
+        "h2": ["Prometheus для метрик", "Grafana для визуализации", "Loki для логов"],
+        "h3": ["Архитектура", "Примеры дашбордов", "Alerting"]
+      },
+      "internalLinking": ["wazuh-siem", "terraform-iac", "ml-monitoring"],
+      "keywords": ["Prometheus", "Grafana", "Loki", "мониторинг", "observability"],
+      "estimatedDate": "2026-04-12",
+      "notes": "Include Kubernetes monitoring with kube-state-metrics"
+    },
+    {
+      "id": 6,
+      "priority": "High",
+      "section": "Cloud Servers",
+      "title": "Разворачивание корпоративных сетей в облаке",
+      "urlSlug": "corporate-networks",
+      "author": "graweo",
+      "status": "Draft",
+      "tags": ["Networks", "Cloud", "Security"],
+      "cluster": "Corporate Networks",
+      "targetLength": "8500-10500 characters",
+      "structure": {
+        "h1": "Разворачивание корпоративных сетей в облаке",
+        "h2": ["VPN архитектуры", "VLAN и сегментация", "Zero Trust архитектура"],
+        "h3": ["DNS и маршрутизация", "DDoS protection"]
+      },
+      "internalLinking": ["vault-secrets", "terraform-iac", "wazuh-siem"],
+      "keywords": ["корпоративная сеть", "облако", "VPN", "Zero Trust"],
+      "estimatedDate": "2026-04-19",
+      "notes": "Multi-region deployments with failover strategies"
+    },
+    {
+      "id": 7,
+      "priority": "High",
+      "section": "AI Agents",
+      "title": "Архитектура AI-агентов",
+      "urlSlug": "ai-agents-architecture",
+      "author": "graweo",
+      "status": "Draft",
+      "tags": ["AI", "Agents", "LLM"],
+      "cluster": "AI Agents",
+      "targetLength": "8000-10000 characters",
+      "structure": {
+        "h1": "Архитектура AI-агентов",
+        "h2": ["Компоненты агентов", "Инструменты и функции", "Многошаговая логика"],
+        "h3": ["Примеры реализации", "Best practices"]
+      },
+      "internalLinking": ["rag-pipeline", "api-orchestration"],
+      "keywords": ["AI agents", "LLM", "архитектура", "orchestration"],
+      "estimatedDate": "2026-04-26",
+      "notes": "ReAct, Chain-of-Thought, Tool use patterns"
+    },
+    {
+      "id": 8,
+      "priority": "High",
+      "section": "RAG",
+      "title": "Как построить RAG-систему",
+      "urlSlug": "rag-pipeline",
+      "author": "graweo",
+      "status": "Draft",
+      "tags": ["AI", "RAG", "LLM"],
+      "cluster": "RAG",
+      "targetLength": "9000-11000 characters",
+      "structure": {
+        "h1": "Как построить RAG-систему",
+        "h2": ["Data Ingestion", "Embeddings и векторные БД", "Retrieval механизмы", "Generation и ranking"],
+        "h3": ["Примеры с LangChain", "Production deployment"]
+      },
+      "internalLinking": ["ai-agents-architecture", "azure-ai-search"],
+      "keywords": ["RAG", "retrieval augmented generation", "embeddings", "LLM"],
+      "estimatedDate": "2026-05-03",
+      "notes": "Include vector databases comparison: Pinecone, Weaviate, Qdrant"
+    },
+    {
+      "id": 9,
+      "priority": "Medium",
+      "section": "Data Analytics",
+      "title": "Spark vs Snowflake",
+      "urlSlug": "spark-vs-snowflake",
+      "author": "graweo",
+      "status": "Draft",
+      "tags": ["Big Data", "Analytics"],
+      "cluster": "Big Data",
+      "targetLength": "6000-8000 characters",
+      "structure": {
+        "h1": "Spark vs Snowflake: выбор решения для big data",
+        "h2": ["Архитектура", "Стоимость владения", "Производительность"],
+        "h3": ["Когда использовать каждое", "Гибридные подходы"]
+      },
+      "internalLinking": ["etl-pipeline", "feature-engineering"],
+      "keywords": ["Spark", "Snowflake", "big data", "аналитика"],
+      "estimatedDate": "2026-05-10",
+      "notes": "Real benchmarks with TPC-DS, cost analysis for different workloads"
+    },
+    {
+      "id": 10,
+      "priority": "Medium",
+      "section": "Data Analytics",
+      "title": "Как построить ETL-пайплайн",
+      "urlSlug": "etl-pipeline",
+      "author": "graweo",
+      "status": "Draft",
+      "tags": ["ETL", "Data Engineering"],
+      "cluster": "ETL",
+      "targetLength": "7000-9000 characters",
+      "structure": {
+        "h1": "Как построить ETL-пайплайн",
+        "h2": ["Extraction из источников", "Transform и валидация", "Load в хранилище"],
+        "h3": ["Обработка ошибок", "Масштабирование"]
+      },
+      "internalLinking": ["spark-vs-snowflake", "feature-engineering"],
+      "keywords": ["ETL", "data pipeline", "extraction", "transformation"],
+      "estimatedDate": "2026-05-17",
+      "notes": "Tools: Airflow, Dbt, Prefect with code examples"
+    },
+    {
+      "id": 11,
+      "priority": "Medium",
+      "section": "Web Apps",
+      "title": "Современная архитектура веб-приложений",
+      "urlSlug": "modern-web-apps",
+      "author": "graweo",
+      "status": "Draft",
+      "tags": ["Web", "Architecture"],
+      "cluster": "Web Apps",
+      "targetLength": "8000-10000 characters",
+      "structure": {
+        "h1": "Современная архитектура веб-приложений",
+        "h2": ["Frontend архитектуры", "Backend patterns", "DevOps и deployment"],
+        "h3": ["Масштабируемость", "Production readiness"]
+      },
+      "internalLinking": ["api-orchestration", "web-speed-optimization"],
+      "keywords": ["web architecture", "microservices", "cloud native"],
+      "estimatedDate": "2026-05-24",
+      "notes": "Monoliths vs Microservices vs Serverless comparison"
+    },
+    {
+      "id": 12,
+      "priority": "Medium",
+      "section": "Web Scraping",
+      "title": "Масштабируемый scraping-кластер",
+      "urlSlug": "scraping-cluster",
+      "author": "graweo",
+      "status": "Draft",
+      "tags": ["Scraping", "Cloud"],
+      "cluster": "Scraping",
+      "targetLength": "7500-9500 characters",
+      "structure": {
+        "h1": "Масштабируемый scraping-кластер в облаке",
+        "h2": ["Архитектура кластера", "Очереди задач", "Управление прокси"],
+        "h3": ["Хранилище данных", "Мониторинг и обработка ошибок"]
+      },
+      "internalLinking": ["etl-pipeline", "ml-analytics"],
+      "keywords": ["web scraping", "distributed", "cluster", "cloud"],
+      "estimatedDate": "2026-05-31",
+      "notes": "Tools: Celery, Kafka, Redis, Puppeteer"
+    },
+    {
+      "id": 13,
+      "priority": "Medium",
+      "section": "API Integration",
+      "title": "API-оркестрация для AI-агентов",
+      "urlSlug": "api-orchestration",
+      "author": "graweo",
+      "status": "Draft",
+      "tags": ["API", "AI", "Agents"],
+      "cluster": "AI Agents",
+      "targetLength": "7000-9000 characters",
+      "structure": {
+        "h1": "API-оркестрация для AI-агентов",
+        "h2": ["Tool calling patterns", "Multi-step workflows", "Error handling"],
+        "h3": ["Примеры с LangChain", "Production patterns"]
+      },
+      "internalLinking": ["ai-agents-architecture", "rag-pipeline"],
+      "keywords": ["API", "orchestration", "agents", "tool calling"],
+      "estimatedDate": "2026-06-07",
+      "notes": "OpenAPI specs, async patterns, rate limiting"
+    },
+    {
+      "id": 14,
+      "priority": "Medium",
+      "section": "DevOps",
+      "title": "CI/CD для ML-моделей",
+      "urlSlug": "ml-cicd",
+      "author": "graweo",
+      "status": "Draft",
+      "tags": ["MLOps", "DevOps"],
+      "cluster": "MLOps",
+      "targetLength": "7500-9500 characters",
+      "structure": {
+        "h1": "CI/CD для ML-моделей",
+        "h2": ["Тестирование моделей", "Валидация качества", "Continuous deployment"],
+        "h3": ["Монитoring drift", "Rollback strategies"]
+      },
+      "internalLinking": ["mlflow-tracking", "drift-detection"],
+      "keywords": ["MLOps", "CI/CD", "machine learning", "deployment"],
+      "estimatedDate": "2026-06-14",
+      "notes": "Tools: MLflow, DVC, Kubeflow"
+    },
+    {
+      "id": 15,
+      "priority": "Medium",
+      "section": "Data Analytics",
+      "title": "Feature engineering: 20 техник",
+      "urlSlug": "feature-engineering",
+      "author": "graweo",
+      "status": "Draft",
+      "tags": ["ML", "Analytics"],
+      "cluster": "ML",
+      "targetLength": "9000-11000 characters",
+      "structure": {
+        "h1": "Feature engineering: 20 техник для ML",
+        "h2": ["Категориальные переменные", "Временные ряды", "Текстовые признаки"],
+        "h3": ["Примеры кода", "Best practices"]
+      },
+      "internalLinking": ["etl-pipeline", "spark-vs-snowflake"],
+      "keywords": ["feature engineering", "machine learning", "data preparation"],
+      "estimatedDate": "2026-06-21",
+      "notes": "One-hot encoding, embeddings, feature selection methods"
+    },
+    {
+      "id": 16,
+      "priority": "Medium",
+      "section": "Web3",
+      "title": "Как построить DApp",
+      "urlSlug": "build-dapp",
+      "author": "graweo",
+      "status": "Draft",
+      "tags": ["Web3", "Blockchain"],
+      "cluster": "Web3",
+      "targetLength": "8000-10000 characters",
+      "structure": {
+        "h1": "Как построить DApp (децентрализованное приложение)",
+        "h2": ["Smart contracts", "Frontend интеграция", "Управление кошельками"],
+        "h3": ["Security considerations", "Deployment"]
+      },
+      "internalLinking": ["web3-infrastructure"],
+      "keywords": ["DApp", "Web3", "blockchain", "smart contracts"],
+      "estimatedDate": "2026-06-28",
+      "notes": "Solidity examples, Web3.js/Ethers.js, wallet integration"
+    },
+    {
+      "id": 17,
+      "priority": "Low",
+      "section": "Web Apps",
+      "title": "20 техник ускорения веб-приложений",
+      "urlSlug": "web-speed-optimization",
+      "author": "graweo",
+      "status": "Draft",
+      "tags": ["Web", "Performance"],
+      "cluster": "Web Apps",
+      "targetLength": "7000-9000 characters",
+      "structure": {
+        "h1": "20 техник ускорения веб-приложений",
+        "h2": ["Backend оптимизация", "Frontend оптимизация", "CDN и кэширование"],
+        "h3": ["Примеры и бенчмарки"]
+      },
+      "internalLinking": ["modern-web-apps"],
+      "keywords": ["performance", "web optimization", "speed", "Core Web Vitals"],
+      "estimatedDate": "2026-07-05",
+      "notes": "Real-world metrics, Lighthouse integration"
+    },
+    {
+      "id": 18,
+      "priority": "Low",
+      "section": "Web Scraping",
+      "title": "Этичный scraping",
+      "urlSlug": "ethical-scraping",
+      "author": "graweo",
+      "status": "Draft",
+      "tags": ["Scraping", "Legal"],
+      "cluster": "Scraping",
+      "targetLength": "5000-7000 characters",
+      "structure": {
+        "h1": "Этичный web scraping: правила и лучшие практики",
+        "h2": ["Robots.txt и Terms of Service", "Правовые аспекты", "Best practices"],
+        "h3": ["Rate limiting", "User-Agent headers"]
+      },
+      "internalLinking": ["scraping-cluster"],
+      "keywords": ["ethical scraping", "robots.txt", "legal", "compliance"],
+      "estimatedDate": "2026-07-12",
+      "notes": "Legal considerations, responsible scraping"
+    },
+    {
+      "id": 19,
+      "priority": "Low",
+      "section": "API Integration",
+      "title": "REST vs GraphQL vs gRPC",
+      "urlSlug": "api-protocols",
+      "author": "graweo",
+      "status": "Draft",
+      "tags": ["API", "Architecture"],
+      "cluster": "API",
+      "targetLength": "6000-8000 characters",
+      "structure": {
+        "h1": "REST vs GraphQL vs gRPC: выбор API протокола",
+        "h2": ["Характеристики каждого", "Плюсы и минусы", "Когда использовать"],
+        "h3": ["Примеры реализации"]
+      },
+      "internalLinking": ["modern-web-apps"],
+      "keywords": ["REST", "GraphQL", "gRPC", "API architecture"],
+      "estimatedDate": "2026-07-19",
+      "notes": "Benchmarks and real-world scenarios"
+    },
+    {
+      "id": 20,
+      "priority": "Low",
+      "section": "Web3",
+      "title": "Web3-инфраструктура в облаке",
+      "urlSlug": "web3-infrastructure",
+      "author": "graweo",
+      "status": "Draft",
+      "tags": ["Web3", "Cloud"],
+      "cluster": "Web3",
+      "targetLength": "7000-9000 characters",
+      "structure": {
+        "h1": "Web3-инфраструктура в облаке",
+        "h2": ["Blockchain узлы", "Валидаторы", "Масштабируемость и безопасность"],
+        "h3": ["RPC endpoints", "Monitoring"]
+      },
+      "internalLinking": ["build-dapp"],
+      "keywords": ["Web3", "blockchain", "infrastructure", "nodes"],
+      "estimatedDate": "2026-07-26",
+      "notes": "Ethereum, Polygon, Solana infrastructure setup"
+    }
+  ],
+  "sections": {
+    "Cloud Servers": {
+      "articleCount": 2,
+      "articles": ["server-for-ml", "corporate-networks"]
+    },
+    "DevOps": {
+      "articleCount": 3,
+      "articles": ["terraform-iac", "monitoring-stack", "ml-cicd"]
+    },
+    "Security": {
+      "articleCount": 2,
+      "articles": ["vault-secrets", "wazuh-siem"]
+    },
+    "Data Analytics": {
+      "articleCount": 4,
+      "articles": ["spark-vs-snowflake", "etl-pipeline", "feature-engineering"]
+    },
+    "Web Apps": {
+      "articleCount": 3,
+      "articles": ["modern-web-apps", "web-speed-optimization"]
+    },
+    "Web Scraping": {
+      "articleCount": 2,
+      "articles": ["scraping-cluster", "ethical-scraping"]
+    },
+    "API Integration": {
+      "articleCount": 2,
+      "articles": ["api-orchestration", "api-protocols"]
+    },
+    "AI Agents": {
+      "articleCount": 2,
+      "articles": ["ai-agents-architecture", "api-orchestration"]
+    },
+    "RAG": {
+      "articleCount": 1,
+      "articles": ["rag-pipeline"]
+    },
+    "Web3": {
+      "articleCount": 2,
+      "articles": ["build-dapp", "web3-infrastructure"]
+    }
+  },
+  "clusters": {
+    "ML Infrastructure": {
+      "articles": ["server-for-ml"],
+      "priority": "High",
+      "estimatedPublishDate": "2026-03-15"
+    },
+    "Terraform": {
+      "articles": ["terraform-iac"],
+      "priority": "High",
+      "estimatedPublishDate": "2026-03-22"
+    },
+    "Vault": {
+      "articles": ["vault-secrets"],
+      "priority": "High",
+      "estimatedPublishDate": "2026-03-29"
+    },
+    "Monitoring & Security": {
+      "articles": ["wazuh-siem", "monitoring-stack"],
+      "priority": "High",
+      "estimatedPublishDate": "2026-04-05"
+    },
+    "Corporate Networks": {
+      "articles": ["corporate-networks"],
+      "priority": "High",
+      "estimatedPublishDate": "2026-04-19"
+    },
+    "AI Agents": {
+      "articles": ["ai-agents-architecture", "api-orchestration"],
+      "priority": "High",
+      "estimatedPublishDate": "2026-04-26"
+    },
+    "RAG": {
+      "articles": ["rag-pipeline"],
+      "priority": "High",
+      "estimatedPublishDate": "2026-05-03"
+    },
+    "Big Data": {
+      "articles": ["spark-vs-snowflake", "etl-pipeline"],
+      "priority": "Medium",
+      "estimatedPublishDate": "2026-05-10"
+    },
+    "Web Apps": {
+      "articles": ["modern-web-apps", "web-speed-optimization"],
+      "priority": "Medium",
+      "estimatedPublishDate": "2026-05-24"
+    },
+    "Scraping": {
+      "articles": ["scraping-cluster", "ethical-scraping"],
+      "priority": "Medium",
+      "estimatedPublishDate": "2026-05-31"
+    },
+    "MLOps": {
+      "articles": ["ml-cicd"],
+      "priority": "Medium",
+      "estimatedPublishDate": "2026-06-14"
+    },
+    "ML": {
+      "articles": ["feature-engineering"],
+      "priority": "Medium",
+      "estimatedPublishDate": "2026-06-21"
+    },
+    "Web3": {
+      "articles": ["build-dapp", "web3-infrastructure"],
+      "priority": "Medium",
+      "estimatedPublishDate": "2026-06-28"
+    },
+    "API": {
+      "articles": ["api-protocols"],
+      "priority": "Low",
+      "estimatedPublishDate": "2026-07-19"
+    }
+  }
+}
