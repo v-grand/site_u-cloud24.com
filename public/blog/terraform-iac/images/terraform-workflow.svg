@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 400" style="background: linear-gradient(135deg, #1a3a52 0%, #0f1f2e 100%);">
+  <defs>
+    <style>
+      .title { font-size: 20px; font-weight: bold; fill: #06b6d4; }
+      .step-box { fill: #1e293b; stroke: #0ea5e9; stroke-width: 2; rx: 8; }
+      .step-label { font-size: 13px; fill: #e2e8f0; font-weight: bold; }
+      .arrow { stroke: #0ea5e9; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+      .file-icon { fill: #f97316; }
+      .status-ok { fill: #10b981; }
+      .status-warning { fill: #f97316; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#0ea5e9" />
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="350" y="30" text-anchor="middle" class="title">Terraform Workflow</text>
+
+  <!-- Step 1: Write -->
+  <rect x="30" y="80" width="120" height="80" class="step-box"/>
+  <text x="90" y="110" text-anchor="middle" class="step-label">1. Write</text>
+  <text x="90" y="135" text-anchor="middle" style="font-size: 11px; fill: #94a3b8;">HCL Config</text>
+  <text x="90" y="150" text-anchor="middle" style="font-size: 11px; fill: #94a3b8;">main.tf</text>
+
+  <!-- Arrow -->
+  <path d="M 150 120 L 190 120" class="arrow"/>
+
+  <!-- Step 2: Plan -->
+  <rect x="190" y="80" width="120" height="80" class="step-box"/>
+  <text x="250" y="110" text-anchor="middle" class="step-label">2. Plan</text>
+  <text x="250" y="135" text-anchor="middle" style="font-size: 11px; fill: #94a3b8;">terraform plan</text>
+  <text x="250" y="150" text-anchor="middle" style="font-size: 11px; fill: #94a3b8;">Review changes</text>
+
+  <!-- Arrow -->
+  <path d="M 310 120 L 350 120" class="arrow"/>
+
+  <!-- Step 3: Apply -->
+  <rect x="350" y="80" width="120" height="80" class="step-box"/>
+  <text x="410" y="110" text-anchor="middle" class="step-label">3. Apply</text>
+  <text x="410" y="135" text-anchor="middle" style="font-size: 11px; fill: #94a3b8;">terraform apply</text>
+  <text x="410" y="150" text-anchor="middle" style="font-size: 11px; fill: #94a3b8;">Deploy to AWS</text>
+
+  <!-- Arrow -->
+  <path d="M 470 120 L 510 120" class="arrow"/>
+
+  <!-- Step 4: Manage -->
+  <rect x="510" y="80" width="160" height="80" class="step-box"/>
+  <text x="590" y="110" text-anchor="middle" class="step-label">4. Manage</text>
+  <text x="590" y="135" text-anchor="middle" style="font-size: 11px; fill: #94a3b8;">Monitor state</text>
+  <text x="590" y="150" text-anchor="middle" style="font-size: 11px; fill: #94a3b8;">terraform refresh</text>
+
+  <!-- Bottom: State Management -->
+  <rect x="30" y="220" width="640" height="140" style="fill: #1e293b; stroke: #f97316; stroke-width: 2; rx: 8;"/>
+  <text x="350" y="245" text-anchor="middle" style="font-size: 14px; fill: #f97316; font-weight: bold;">State Management</text>
+
+  <!-- State options -->
+  <rect x="50" y="265" width="140" height="70" style="fill: #0f1f2e; stroke: #94a3b8; stroke-width: 1; rx: 4;"/>
+  <text x="120" y="285" text-anchor="middle" style="font-size: 12px; fill: #e2e8f0; font-weight: bold;">Local State</text>
+  <text x="120" y="305" text-anchor="middle" style="font-size: 10px; fill: #94a3b8;">terraform.tfstate</text>
+  <text x="120" y="320" text-anchor="middle" style="font-size: 10px; fill: #94a3b8;">(Development)</text>
+
+  <rect x="220" y="265" width="140" height="70" style="fill: #0f1f2e; stroke: #94a3b8; stroke-width: 1; rx: 4;"/>
+  <text x="290" y="285" text-anchor="middle" style="font-size: 12px; fill: #e2e8f0; font-weight: bold;">S3 Backend</text>
+  <text x="290" y="305" text-anchor="middle" style="font-size: 10px; fill: #94a3b8;">Remote state</text>
+  <text x="290" y="320" text-anchor="middle" style="font-size: 10px; fill: #94a3b8;">(Team work)</text>
+
+  <rect x="390" y="265" width="140" height="70" style="fill: #0f1f2e; stroke: #94a3b8; stroke-width: 1; rx: 4;"/>
+  <text x="460" y="285" text-anchor="middle" style="font-size: 12px; fill: #e2e8f0; font-weight: bold;">State Locking</text>
+  <text x="460" y="305" text-anchor="middle" style="font-size: 10px; fill: #94a3b8;">DynamoDB</text>
+  <text x="460" y="320" text-anchor="middle" style="font-size: 10px; fill: #94a3b8;">(Prevent conflicts)</text>
+
+  <rect x="560" y="265" width="100" height="70" style="fill: #0f1f2e; stroke: #94a3b8; stroke-width: 1; rx: 4;"/>
+  <text x="610" y="285" text-anchor="middle" style="font-size: 12px; fill: #e2e8f0; font-weight: bold;">Version</text>
+  <text x="610" y="305" text-anchor="middle" style="font-size: 10px; fill: #94a3b8;">Control</text>
+  <text x="610" y="320" text-anchor="middle" style="font-size: 10px; fill: #94a3b8;">Git</text>
+</svg>

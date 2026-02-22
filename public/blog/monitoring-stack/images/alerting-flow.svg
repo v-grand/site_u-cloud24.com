@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 380" style="background: linear-gradient(135deg, #1a3a52 0%, #0f1f2e 100%);">
+  <defs>
+    <style>
+      .title { font-size: 18px; font-weight: bold; fill: #06b6d4; }
+      .step-box { fill: #1e293b; stroke-width: 2; rx: 6; }
+      .step-normal { stroke: #0ea5e9; }
+      .step-warning { stroke: #f97316; }
+      .step-alert { stroke: #ef4444; }
+      .label { font-size: 12px; fill: #e2e8f0; font-weight: bold; }
+      .sublabel { font-size: 10px; fill: #94a3b8; }
+      .arrow { stroke: #0ea5e9; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+      .arrow-alert { stroke: #ef4444; stroke-width: 2; fill: none; marker-end: url(#arrowhead-red); }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#0ea5e9" />
+    </marker>
+    <marker id="arrowhead-red" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#ef4444" />
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="350" y="30" text-anchor="middle" class="title">Alert Generation and Notification Flow</text>
+
+  <!-- Step 1: Metric Collection -->
+  <rect x="20" y="60" width="120" height="70" class="step-box step-normal"/>
+  <text x="80" y="90" text-anchor="middle" class="label">1. Scrape</text>
+  <text x="80" y="108" text-anchor="middle" class="sublabel">Prometheus</text>
+  <text x="80" y="120" text-anchor="middle" class="sublabel">collects</text>
+
+  <path d="M 140 95 L 180 95" class="arrow"/>
+
+  <!-- Step 2: Rule Evaluation -->
+  <rect x="180" y="60" width="120" height="70" class="step-box step-normal"/>
+  <text x="240" y="90" text-anchor="middle" class="label">2. Evaluate</text>
+  <text x="240" y="108" text-anchor="middle" class="sublabel">Alert Rules</text>
+
+  <!-- Normal path -->
+  <path d="M 300 95 L 340 95" class="arrow"/>
+
+  <rect x="340" y="60" width="120" height="70" class="step-box step-normal"/>
+  <text x="400" y="90" text-anchor="middle" class="label">OK Status</text>
+  <text x="400" y="108" text-anchor="middle" class="sublabel">No action</text>
+
+  <!-- Alert triggered path -->
+  <path d="M 240 130 L 240 180" class="arrow-alert"/>
+
+  <!-- Step 3: Alert Triggered -->
+  <rect x="180" y="180" width="120" height="70" class="step-box step-alert"/>
+  <text x="240" y="210" text-anchor="middle" class="label" style="fill: #ef4444;">3. ALERT!</text>
+  <text x="240" y="228" text-anchor="middle" class="sublabel">Rule threshold</text>
+  <text x="240" y="240" text-anchor="middle" class="sublabel">exceeded</text>
+
+  <!-- Arrow to AlertManager -->
+  <path d="M 300 215 L 340 215" class="arrow-alert"/>
+
+  <!-- Step 4: AlertManager -->
+  <rect x="340" y="180" width="120" height="70" class="step-box step-alert"/>
+  <text x="400" y="210" text-anchor="middle" class="label" style="fill: #ef4444;">4. Route Alert</text>
+  <text x="400" y="228" text-anchor="middle" class="sublabel">GroupingKey</text>
+  <text x="400" y="240" text-anchor="middle" class="sublabel">Receivers</text>
+
+  <!-- Arrows to notifications -->
+  <path d="M 340 240 L 280 300" class="arrow-alert"/>
+  <path d="M 400 250 L 400 300" class="arrow-alert"/>
+  <path d="M 460 240 L 520 300" class="arrow-alert"/>
+
+  <!-- Notification channels -->
+  <rect x="220" y="300" width="100" height="60" class="step-box step-alert"/>
+  <text x="270" y="320" text-anchor="middle" class="label">Slack</text>
+  <text x="270" y="335" text-anchor="middle" class="sublabel">Channel #ops</text>
+
+  <rect x="350" y="300" width="100" height="60" class="step-box step-alert"/>
+  <text x="400" y="320" text-anchor="middle" class="label">Email</text>
+  <text x="400" y="335" text-anchor="middle" class="sublabel">ops@team.com</text>
+
+  <rect x="480" y="300" width="100" height="60" class="step-box step-alert"/>
+  <text x="530" y="320" text-anchor="middle" class="label">PagerDuty</text>
+  <text x="530" y="335" text-anchor="middle" class="sublabel">On-call eng</text>
+
+  <!-- Alert example -->
+  <rect x="600" y="60" width="80" height="240" style="fill: #0f1f2e; stroke: #f97316; stroke-width: 1; rx: 4;"/>
+  <text x="640" y="80" text-anchor="middle" style="font-size: 9px; fill: #f97316; font-weight: bold;">Alert Example</text>
+  <text x="620" y="100" style="font-size: 8px; fill: #e2e8f0;">HighErrorRate</text>
+  <text x="620" y="112" style="font-size: 8px; fill: #94a3b8;">Error rate > 5%</text>
+  <text x="620" y="126" style="font-size: 8px; fill: #e2e8f0;">Service: ML-API</text>
+  <text x="620" y="138" style="font-size: 8px; fill: #94a3b8;">Severity: Critical</text>
+
+  <text x="620" y="160" style="font-size: 8px; fill: #e2e8f0;">HighLatency</text>
+  <text x="620" y="172" style="font-size: 8px; fill: #94a3b8;">P95 > 1s</text>
+  <text x="620" y="186" style="font-size: 8px; fill: #e2e8f0;">Service: Inference</text>
+  <text x="620" y="198" style="font-size: 8px; fill: #94a3b8;">Severity: Warning</text>
+
+  <text x="620" y="220" style="font-size: 8px; fill: #e2e8f0;">GPUMemoryLeak</text>
+  <text x="620" y="232" style="font-size: 8px; fill: #94a3b8;">GPU mem > 90GB</text>
+  <text x="620" y="246" style="font-size: 8px; fill: #e2e8f0;">Instance: gpu-01</text>
+  <text x="620" y="258" style="font-size: 8px; fill: #94a3b8;">Severity: Critical</text>
+</svg>

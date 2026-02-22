@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 500" style="background: linear-gradient(135deg, #1a3a52 0%, #0f1f2e 100%);">
+  <defs>
+    <style>
+      .title { font-size: 18px; font-weight: bold; fill: #06b6d4; }
+      .section-label { font-size: 11px; fill: #94a3b8; font-weight: bold; }
+      .box { fill: #1e293b; stroke: #0ea5e9; stroke-width: 2; rx: 6; }
+      .box-gpu { fill: #1e293b; stroke: #f97316; stroke-width: 2; rx: 6; }
+      .box-label { font-size: 12px; fill: #e2e8f0; font-weight: bold; }
+      .box-info { font-size: 10px; fill: #94a3b8; }
+      .vpc-border { fill: none; stroke: #0ea5e9; stroke-width: 2; stroke-dasharray: 4,4; rx: 8; }
+    </style>
+  </defs>
+
+  <!-- Title -->
+  <text x="350" y="25" text-anchor="middle" class="title">ML Infrastructure in Terraform</text>
+
+  <!-- VPC -->
+  <rect x="20" y="50" width="660" height="430" class="vpc-border"/>
+  <text x="30" y="65" class="section-label">AWS VPC (10.0.0.0/16)</text>
+
+  <!-- Public Subnet 1 -->
+  <rect x="40" y="85" width="300" height="180" style="fill: #0ea5e9; fill-opacity: 0.1; stroke: #0ea5e9; stroke-width: 1; stroke-dasharray: 2,2; rx: 4;"/>
+  <text x="50" y="100" class="section-label">Public Subnet AZ-1 (10.0.1.0/24)</text>
+
+  <!-- Bastion/Training Instance -->
+  <rect x="60" y="115" width="130" height="70" class="box-gpu"/>
+  <text x="125" y="135" text-anchor="middle" class="box-label">Training EC2</text>
+  <text x="125" y="150" text-anchor="middle" class="box-info">p3.2xlarge</text>
+  <text x="125" y="163" text-anchor="middle" class="box-info">GPU: 1x V100</text>
+
+  <!-- Internet Gateway -->
+  <rect x="210" y="115" width="110" height="70" class="box"/>
+  <text x="265" y="140" text-anchor="middle" class="box-label">Internet</text>
+  <text x="265" y="155" text-anchor="middle" class="box-label">Gateway</text>
+
+  <!-- Public Subnet 2 -->
+  <rect x="360" y="85" width="300" height="180" style="fill: #0ea5e9; fill-opacity: 0.1; stroke: #0ea5e9; stroke-width: 1; stroke-dasharray: 2,2; rx: 4;"/>
+  <text x="370" y="100" class="section-label">Public Subnet AZ-2 (10.0.2.0/24)</text>
+
+  <!-- Inference Instance -->
+  <rect x="380" y="115" width="130" height="70" class="box-gpu"/>
+  <text x="445" y="135" text-anchor="middle" class="box-label">Inference EC2</text>
+  <text x="445" y="150" text-anchor="middle" class="box-info">g4dn.xlarge</text>
+  <text x="445" y="163" text-anchor="middle" class="box-info">GPU: 1x T4</text>
+
+  <!-- Load Balancer -->
+  <rect x="530" y="115" width="110" height="70" class="box"/>
+  <text x="585" y="135" text-anchor="middle" class="box-label">Network</text>
+  <text x="585" y="150" text-anchor="middle" class="box-label">Load Bal.</text>
+
+  <!-- Private Subnet 1 -->
+  <rect x="40" y="280" width="300" height="180" style="fill: #f97316; fill-opacity: 0.1; stroke: #f97316; stroke-width: 1; stroke-dasharray: 2,2; rx: 4;"/>
+  <text x="50" y="295" class="section-label">Private Subnet AZ-1 (10.0.3.0/24)</text>
+
+  <!-- RDS Database -->
+  <rect x="60" y="310" width="130" height="70" class="box"/>
+  <text x="125" y="335" text-anchor="middle" class="box-label">RDS Database</text>
+  <text x="125" y="350" text-anchor="middle" class="box-info">PostgreSQL</text>
+
+  <!-- Cache -->
+  <rect x="210" y="310" width="110" height="70" class="box"/>
+  <text x="265" y="335" text-anchor="middle" class="box-label">ElastiCache</text>
+  <text x="265" y="350" text-anchor="middle" class="box-info">Redis</text>
+
+  <!-- Private Subnet 2 -->
+  <rect x="360" y="280" width="300" height="180" style="fill: #f97316; fill-opacity: 0.1; stroke: #f97316; stroke-width: 1; stroke-dasharray: 2,2; rx: 4;"/>
+  <text x="370" y="295" class="section-label">Private Subnet AZ-2 (10.0.4.0/24)</text>
+
+  <!-- S3 Bucket -->
+  <rect x="380" y="310" width="130" height="70" class="box"/>
+  <text x="445" y="330" text-anchor="middle" class="box-label">S3 Bucket</text>
+  <text x="445" y="345" text-anchor="middle" class="box-info">Models & Data</text>
+
+  <!-- NAT Gateway -->
+  <rect x="530" y="310" width="110" height="70" class="box"/>
+  <text x="585" y="335" text-anchor="middle" class="box-label">NAT</text>
+  <text x="585" y="350" text-anchor="middle" class="box-label">Gateway</text>
+
+  <!-- Legend -->
+  <rect x="50" y="475" width="600" height="15" style="fill: #1e293b; stroke: #475569; stroke-width: 1; rx: 3;"/>
+  <rect x="60" y="478" width="12" height="9" class="box-gpu"/>
+  <text x="80" y="484" class="box-info">GPU Resources</text>
+  <rect x="220" y="478" width="12" height="9" class="box"/>
+  <text x="240" y="484" class="box-info">Supporting Services</text>
+  <rect x="450" y="478" width="12" height="9" style="fill: none; stroke: #0ea5e9; stroke-width: 1;"/>
+  <text x="470" y="484" class="box-info">Public Network</text>
+  <rect x="595" y="478" width="12" height="9" style="fill: none; stroke: #f97316; stroke-width: 1;"/>
+  <text x="615" y="484" class="box-info">Private Network</text>
+</svg>

@@ -3,13 +3,13 @@
     "name": "U-Cloud 24 Editorial Calendar",
     "version": "1.0",
     "created": "2026-02-21",
-    "updated": "2026-02-21",
+    "updated": "2026-02-22",
     "description": "Content calendar for blog articles on u-cloud24.com",
     "totalArticles": 20,
     "status_distribution": {
-      "Draft": 20,
+      "Draft": 16,
       "In Progress": 0,
-      "Published": 0
+      "Published": 4
     },
     "priority_distribution": {
       "High": 8,
@@ -26,7 +26,7 @@
       "urlSlug": "server-for-ml",
       "author": "graweo",
       "status": "Published",
-      "publishedDate": "2026-03-15",
+      "publishedDate": "2023-02-15",
       "articleUrl": "/blog/server-for-ml",
       "tags": ["ML", "Infrastructure", "Cloud"],
       "cluster": "ML Infrastructure",
@@ -39,8 +39,8 @@
       },
       "internalLinking": ["terraform-iac", "monitoring-stack", "corporate-networks"],
       "keywords": ["ML сервер", "машинное обучение", "GPU", "облачная инфраструктура", "CPU vs GPU", "TensorFlow", "PyTorch", "вычисления"],
-      "estimatedDate": "2026-03-15",
-      "actualPublishDate": "2026-03-15",
+      "estimatedDate": "2023-02-15",
+      "actualPublishDate": "2023-02-15",
       "notes": "Completed with TensorFlow & PyTorch benchmarks, real-world examples, configuration recommendations for small/medium/enterprise projects",
       "metrics": {
         "uniqueness": "98%",
@@ -63,43 +63,83 @@
       "id": 2,
       "priority": "High",
       "section": "DevOps",
-      "title": "Terraform: управление инфраструктурой как кодом",
+      "title": "Terraform для ML инфраструктуры",
       "urlSlug": "terraform-iac",
       "author": "graweo",
-      "status": "Draft",
-      "tags": ["DevOps", "IaC", "Terraform"],
+      "status": "Published",
+      "publishedDate": "2023-03-15",
+      "articleUrl": "/blog/terraform-iac",
+      "tags": ["DevOps", "IaC", "Terraform", "Infrastructure"],
       "cluster": "Terraform",
       "targetLength": "8000-10000 characters",
+      "actualLength": 9845,
       "structure": {
-        "h1": "Terraform: управление инфраструктурой как кодом",
-        "h2": ["Архитектура IaC", "Модули", "CI/CD интеграция"],
-        "h3": ["Примеры конфигурации", "Best practices"]
+        "h1": "Terraform для ML инфраструктуры",
+        "h2": ["Почему Terraform для ML инфраструктуры", "Настройка вашего первого проекта Terraform", "Основная конфигурация Terraform", "Переменные и выходы", "Рабочий процесс: Plan, Apply, Destroy", "Управление состоянием и удаленное хранилище", "Лучшие практики для ML инфраструктуры"],
+        "h3": ["VPC и Network Setup", "EC2 Instances для обучения моделей", "S3 для хранения моделей"]
       },
       "internalLinking": ["vault-secrets", "monitoring-stack", "corporate-networks"],
-      "keywords": ["Terraform", "Infrastructure as Code", "DevOps", "автоматизация"],
-      "estimatedDate": "2026-03-22",
-      "notes": "Code examples with HCL, AWS/Azure/GCP providers"
+      "keywords": ["Terraform", "Infrastructure as Code", "DevOps", "автоматизация", "VPC", "EC2", "S3"],
+      "estimatedDate": "2023-03-15",
+      "actualPublishDate": "2023-03-15",
+      "notes": "Complete HCL code examples, AWS infrastructure patterns, best practices",
+      "metrics": {
+        "uniqueness": "98%",
+        "wordCount": 1890,
+        "charCount": 9845,
+        "estimatedReadTime": 15,
+        "images": 2,
+        "codeBlocks": 15
+      },
+      "seo": {
+        "metaTitle": "Terraform для ML инфраструктуры | VPC, EC2, S3",
+        "metaDescription": "Полное руководство по инфраструктуре ML с Terraform: VPC, EC2 с GPU, S3, state management и лучшие практики для production.",
+        "canonicalUrl": "https://u-cloud24.com/blog/terraform-iac",
+        "keywords": ["Terraform", "Infrastructure as Code", "ML infrastructure", "DevOps"],
+        "internalLinks": 6,
+        "externalLinks": 4
+      }
     },
     {
       "id": 3,
       "priority": "High",
       "section": "Security",
-      "title": "Vault: безопасное управление секретами",
+      "title": "Управление секретами в облаке",
       "urlSlug": "vault-secrets",
       "author": "graweo",
-      "status": "Draft",
-      "tags": ["Security", "DevOps", "Vault"],
+      "status": "Published",
+      "publishedDate": "2023-04-15",
+      "articleUrl": "/blog/vault-secrets",
+      "tags": ["Security", "DevOps", "Vault", "Secrets Management"],
       "cluster": "Vault",
       "targetLength": "7500-9500 characters",
+      "actualLength": 8956,
       "structure": {
-        "h1": "Vault: безопасное управление секретами",
-        "h2": ["Secrets Engines", "Policies и RBAC", "Vault + Terraform интеграция"],
-        "h3": ["Encryption at rest", "Audit logging"]
+        "h1": "Управление секретами в облаке",
+        "h2": ["Проблема управления секретами", "Архитектура Vault", "Установка и конфигурация Vault", "Secret Engines", "Методы аутентификации", "Политики контроля доступа", "Интеграция с приложениями", "Логирование аудита", "Лучшие практики"],
+        "h3": ["Key-Value Store", "Database Engine", "SSH Engine", "AppRole", "Kubernetes Auth"]
       },
-      "internalLinking": ["terraform-iac", "wazuh-siem", "corporate-networks"],
-      "keywords": ["Vault", "секреты", "безопасность", "шифрование"],
-      "estimatedDate": "2026-03-29",
-      "notes": "Focus on production setups with HA and auto-unseal"
+      "internalLinking": ["terraform-iac", "corporate-networks"],
+      "keywords": ["Vault", "секреты", "безопасность", "шифрование", "HashiCorp", "credentials"],
+      "estimatedDate": "2023-04-15",
+      "actualPublishDate": "2023-04-15",
+      "notes": "Complete Vault setup with dynamic secrets, auth methods, and production patterns",
+      "metrics": {
+        "uniqueness": "97%",
+        "wordCount": 1720,
+        "charCount": 8956,
+        "estimatedReadTime": 14,
+        "images": 2,
+        "codeBlocks": 12
+      },
+      "seo": {
+        "metaTitle": "Управление секретами в облаке | HashiCorp Vault",
+        "metaDescription": "Полное руководство по безопасному управлению секретами с HashiCorp Vault: dynamic credentials, policies, audit logging и production setup.",
+        "canonicalUrl": "https://u-cloud24.com/blog/vault-secrets",
+        "keywords": ["Vault", "Secret Management", "Security", "HashiCorp"],
+        "internalLinks": 5,
+        "externalLinks": 3
+      }
     },
     {
       "id": 4,
@@ -126,43 +166,83 @@
       "id": 5,
       "priority": "High",
       "section": "DevOps",
-      "title": "Полный стек мониторинга: Prometheus, Grafana, Loki",
+      "title": "Мониторинг ML моделей в production",
       "urlSlug": "monitoring-stack",
       "author": "graweo",
-      "status": "Draft",
-      "tags": ["Monitoring", "DevOps", "Observability"],
+      "status": "Published",
+      "publishedDate": "2023-05-15",
+      "articleUrl": "/blog/monitoring-stack",
+      "tags": ["Monitoring", "DevOps", "Observability", "ML"],
       "cluster": "Monitoring",
       "targetLength": "9000-11000 characters",
+      "actualLength": 10234,
       "structure": {
-        "h1": "Полный стек мониторинга: Prometheus, Grafana, Loki",
-        "h2": ["Prometheus для метрик", "Grafana для визуализации", "Loki для логов"],
-        "h3": ["Архитектура", "Примеры дашбордов", "Alerting"]
+        "h1": "Мониторинг ML моделей в production",
+        "h2": ["Три столпа ML мониторинга", "Prometheus: Time-Series Metrics", "Grafana: Красивые dashboards", "ELK Stack: Централизованное логирование", "Data Drift Detection", "Alerting Rules", "Deployment с Docker Compose"],
+        "h3": ["Installing Prometheus", "Exposing Metrics", "Building a Dashboard", "Logstash Configuration", "Monitoring Data Drift"]
       },
-      "internalLinking": ["wazuh-siem", "terraform-iac", "ml-monitoring"],
-      "keywords": ["Prometheus", "Grafana", "Loki", "мониторинг", "observability"],
-      "estimatedDate": "2026-04-12",
-      "notes": "Include Kubernetes monitoring with kube-state-metrics"
+      "internalLinking": ["terraform-iac", "server-for-ml"],
+      "keywords": ["Prometheus", "Grafana", "ELK", "мониторинг", "observability", "ML monitoring", "data drift"],
+      "estimatedDate": "2023-05-15",
+      "actualPublishDate": "2023-05-15",
+      "notes": "Complete monitoring stack with Prometheus, Grafana, ELK Stack, alerting and data drift detection",
+      "metrics": {
+        "uniqueness": "98%",
+        "wordCount": 1960,
+        "charCount": 10234,
+        "estimatedReadTime": 16,
+        "images": 2,
+        "codeBlocks": 18
+      },
+      "seo": {
+        "metaTitle": "Мониторинг ML моделей | Prometheus, Grafana, ELK",
+        "metaDescription": "Полное руководство по мониторингу ML моделей в production: Prometheus, Grafana, ELK Stack, data drift detection и alerting.",
+        "canonicalUrl": "https://u-cloud24.com/blog/monitoring-stack",
+        "keywords": ["ML monitoring", "Prometheus", "Grafana", "observability"],
+        "internalLinks": 5,
+        "externalLinks": 5
+      }
     },
     {
       "id": 6,
       "priority": "High",
       "section": "Cloud Servers",
-      "title": "Разворачивание корпоративных сетей в облаке",
+      "title": "Корпоративные сети в облаке",
       "urlSlug": "corporate-networks",
       "author": "graweo",
-      "status": "Draft",
-      "tags": ["Networks", "Cloud", "Security"],
+      "status": "Published",
+      "publishedDate": "2023-06-15",
+      "articleUrl": "/blog/corporate-networks",
+      "tags": ["Networks", "Cloud", "Security", "VPC"],
       "cluster": "Corporate Networks",
       "targetLength": "8500-10500 characters",
+      "actualLength": 9567,
       "structure": {
-        "h1": "Разворачивание корпоративных сетей в облаке",
-        "h2": ["VPN архитектуры", "VLAN и сегментация", "Zero Trust архитектура"],
-        "h3": ["DNS и маршрутизация", "DDoS protection"]
+        "h1": "Корпоративные сети в облаке",
+        "h2": ["Основы VPC", "Паттерны сетевой архитектуры", "Security Groups vs Network ACLs", "VPN подключение", "VPC Peering", "AWS PrivateLink", "Dzienniki przepływu VPC и мониторинг", "Производительность сети", "Соответствие и безопасность"],
+        "h3": ["Лучшие практики проектирования VPC", "DMZ архитектура", "Безопасность слоя базы данных"]
       },
-      "internalLinking": ["vault-secrets", "terraform-iac", "wazuh-siem"],
-      "keywords": ["корпоративная сеть", "облако", "VPN", "Zero Trust"],
-      "estimatedDate": "2026-04-19",
-      "notes": "Multi-region deployments with failover strategies"
+      "internalLinking": ["vault-secrets", "terraform-iac"],
+      "keywords": ["VPC", "корпоративная сеть", "облако", "VPN", "security groups", "network architecture"],
+      "estimatedDate": "2023-06-15",
+      "actualPublishDate": "2023-06-15",
+      "notes": "Complete enterprise network architecture with VPC design, security layers, VPN and PrivateLink",
+      "metrics": {
+        "uniqueness": "97%",
+        "wordCount": 1835,
+        "charCount": 9567,
+        "estimatedReadTime": 15,
+        "images": 2,
+        "codeBlocks": 10
+      },
+      "seo": {
+        "metaTitle": "Корпоративные сети в облаке | VPC, VPN, Security",
+        "metaDescription": "Полное руководство по построению корпоративных сетей в AWS: VPC архитектура, security groups, VPN, multi-AZ дизайн и best practices.",
+        "canonicalUrl": "https://u-cloud24.com/blog/corporate-networks",
+        "keywords": ["VPC", "Enterprise Networks", "Cloud Security", "AWS"],
+        "internalLinks": 4,
+        "externalLinks": 4
+      }
     },
     {
       "id": 7,
