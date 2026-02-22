@@ -91,9 +91,26 @@ export const I18N_STRINGS: Translations = {
   service_web3_usecase: { en: 'Case Study: DeFi Protocol launched on Ethereum & Polygon managing $500M+ TVL with 100K+ daily active users. Smart contracts developed in Solidity, audited by CertiK (tier-1 firm). Features: automated market maker (AMM), yield farming, staking. Daily transactions: 1M+, zero security incidents since launch (2 years). Token: $DEFI, market cap $2B+. Infrastructure: Chainlink oracles for price feeds, IPFS for metadata. Frontend: Next.js, Web3.js. Annual revenue: $10M+ from protocol fees. Community: 50K+ Discord members, 100K+ Twitter followers.', ru: 'Кейс: DeFi протокол запущен на Ethereum & Polygon с управлением $500M+ TVL и 100K+ ежедневно активных пользователей. Смарт-контракты на Solidity, аудит CertiK (уровень 1). Функции: automated market maker (AMM), yield farming, staking. Ежедневные транзакции: 1M+, ноль инцидентов безопасности с момента запуска (2 года). Токен: $DEFI, капитализация $2B+. Инфраструктура: Chainlink oracles для цен, IPFS для метаданных.', pl: 'Studium przypadku: Protokół DeFi uruchomiony na Ethereum & Polygon zarządzający 500M+ TVL z 100K+ codziennymi aktywnymi użytkownikami. Inteligentne kontrakty w Solidity, audyt CertiK (firma tier-1). Funkcje: automated market maker (AMM), yield farming, staking. Dzienne transakcje: 1M+, zero incydentów bezpieczeństwa od momentu uruchomienia (2 lata). Token: $DEFI, kapitalizacja rynkowa 2B$+. Infrastruktura: Chainlink oracles, IPFS na metadane.' },
 
   // Blog Pages
+  blog: { en: 'Blog', ru: 'Блог', pl: 'Blog' },
   blog_title: { en: 'Tech Insights & Cloud Blog', ru: 'Блог облачных технологий и инсайтов', pl: 'Blog techniczny i cloudu' },
   blog_subtitle: { en: 'Deep-dive articles on cloud infrastructure, DevOps, ML, Web3, and enterprise solutions. Written by industry experts.', ru: 'Подробные статьи об облачной инфраструктуре, DevOps, ML, Web3 и корпоративных решениях. Написано экспертами отрасли.', pl: 'Artykuły pogłębiające się w infrastrukturę chmury, DevOps, ML, Web3 i rozwiązania dla przedsiębiorstw. Napisane przez ekspertów branży.' },
   blog_back: { en: 'Back to Blog', ru: 'Вернуться в блог', pl: 'Powrót do bloga' },
+  blog_read_more: { en: 'Read More →', ru: 'Читать дальше →', pl: 'Czytaj dalej →' },
+  blog_published: { en: 'Published', ru: 'Опубликовано', pl: 'Opublikowano' },
+  blog_by_author: { en: 'By', ru: 'Автор', pl: 'Autor' },
+  blog_read_time: { en: 'read time', ru: 'время чтения', pl: 'czas czytania' },
+  blog_related_articles: { en: 'Related Articles', ru: 'Статьи на похожие темы', pl: 'Powiązane artykuły' },
+  blog_helpful_question: { en: 'Found this article helpful?', ru: 'Статья была полезной?', pl: 'Znalazłeś artykuł pomocny?' },
+  blog_helpful_description: { en: 'Get in touch with our team to discuss how we can help implement these solutions for your business.', ru: 'Свяжитесь с нашей командой, чтобы обсудить, как мы можем помочь внедрить эти решения в ваш бизнес.', pl: 'Skontaktuj się z naszym zespołem, aby omówić, jak możemy pomóc w wdrożeniu tych rozwiązań w Twojej firmie.' },
+  blog_schedule_consultation: { en: 'Schedule a Consultation', ru: 'Запланировать консультацию', pl: 'Zaplanuj konsultację' },
+  blog_cta_title: { en: 'Need Expert Help?', ru: 'Нужна помощь эксперта?', pl: 'Potrzebujesz pomocy eksperta?' },
+  blog_cta_description: { en: 'Our team can help you implement the solutions discussed in our articles.', ru: 'Наша команда может помочь вам внедрить решения, обсуждаемые в наших статьях.', pl: 'Nasz zespół może Ci pomóc w implementacji rozwiązań omawianych w naszych artykułach.' },
+  blog_loading: { en: 'Loading article...', ru: 'Загрузка статьи...', pl: 'Ładowanie artykułu...' },
+  blog_article_not_found: { en: 'Article Not Found', ru: 'Статья не найдена', pl: 'Artykuł nie znaleziony' },
+  blog_article_not_found_desc: { en: "The article you're looking for doesn't exist.", ru: 'Статья, которую вы ищете, не существует.', pl: 'Artykuł, którego szukasz, nie istnieje.' },
+  blog_error_loading: { en: 'Error loading article', ru: 'Ошибка загрузки статьи', pl: 'Błąd przy ładowaniu artykułu' },
+  blog_error_desc: { en: "Sorry, we couldn't load the article content.", ru: 'Извините, не удалось загрузить содержимое статьи.', pl: 'Przepraszamy, nie mogliśmy załadować zawartości artykułu.' },
+  blog_free_consultation: { en: 'Get a Free Consultation', ru: 'Получить бесплатную консультацию', pl: 'Uzyskaj bezpłatną konsultację' },
 
   // Contacts Page
   contacts_title: { en: 'Contact Us', ru: 'Свяжитесь с нами', pl: 'Skontaktuj się z nami' },
@@ -105,58 +122,58 @@ export const I18N_STRINGS: Translations = {
 
 export interface BlogArticle {
   slug: string;
-  title: string;
-  description: string;
+  title: { en: string; ru: string; pl: string };
+  description: { en: string; ru: string; pl: string };
   author: string;
   section: string;
   publishedDate: string;
-  readTime: string;
+  readTime: { en: string; ru: string; pl: string };
 }
 
 export const BLOG_ARTICLES: BlogArticle[] = [
   {
     slug: 'server-for-ml',
-    title: 'Как выбрать сервер для ML-нагрузок: CPU vs GPU',
-    description: 'Полное руководство по выбору облачного сервера для машинного обучения: сравнение процессоров, видеокарт, памяти и рекомендации для разных задач ML.',
+    title: { en: 'How to Choose a Server for ML Workloads: CPU vs GPU', ru: 'Как выбрать сервер для ML-нагрузок: CPU vs GPU', pl: 'Jak wybrać serwer do obciążeń ML: CPU vs GPU' },
+    description: { en: 'Complete guide to choosing a cloud server for machine learning: comparing processors, GPUs, memory, and recommendations for different ML tasks.', ru: 'Полное руководство по выбору облачного сервера для машинного обучения: сравнение процессоров, видеокарт, памяти и рекомендации для разных задач ML.', pl: 'Pełny przewodnik do wyboru serwera w chmurze dla uczenia maszynowego: porównanie procesorów, procesorów graficznych, pamięci i zalecenia dla różnych zadań ML.' },
     author: 'graweo',
     section: 'Cloud Servers',
     publishedDate: '2026-03-15',
-    readTime: '12 мин',
+    readTime: { en: '12 min', ru: '12 мин', pl: '12 min' },
   },
   {
     slug: 'terraform-iac',
-    title: 'Terraform для ML инфраструктуры',
-    description: 'Управляйте облачной инфраструктурой как кодом. Complete guide для настройки GPU серверов, Kubernetes и автомасштабирования.',
+    title: { en: 'Terraform for ML Infrastructure', ru: 'Terraform для ML инфраструктуры', pl: 'Terraform do infrastruktury ML' },
+    description: { en: 'Manage cloud infrastructure as code. Complete guide for setting up GPU servers, Kubernetes, and auto-scaling with Terraform.', ru: 'Управляйте облачной инфраструктурой как кодом. Complete guide для настройки GPU серверов, Kubernetes и автомасштабирования.', pl: 'Zarządzaj infrastrukturą chmury jako kodem. Kompletny przewodnik do konfiguracji serwerów GPU, Kubernetes i automatycznego skalowania.' },
     author: 'graweo',
     section: 'Infrastructure',
     publishedDate: '2026-03-22',
-    readTime: '15 мин',
+    readTime: { en: '15 min', ru: '15 мин', pl: '15 min' },
   },
   {
     slug: 'monitoring-stack',
-    title: 'Мониторинг ML моделей в production',
-    description: 'Настройте полный стек мониторинга: Prometheus, Grafana, ELK для отслеживания моделей, инфраструктуры и аномалий.',
+    title: { en: 'Monitoring ML Models in Production', ru: 'Мониторинг ML моделей в production', pl: 'Monitorowanie modeli ML w produkcji' },
+    description: { en: 'Set up a complete monitoring stack: Prometheus, Grafana, ELK for tracking models, infrastructure, and anomalies.', ru: 'Настройте полный стек мониторинга: Prometheus, Grafana, ELK для отслеживания моделей, инфраструктуры и аномалий.', pl: 'Skonfiguruj kompletny stos monitorowania: Prometheus, Grafana, ELK do śledzenia modeli, infrastruktury i anomalii.' },
     author: 'graweo',
     section: 'DevOps',
     publishedDate: '2026-03-29',
-    readTime: '14 мин',
+    readTime: { en: '14 min', ru: '14 мин', pl: '14 min' },
   },
   {
     slug: 'vault-secrets',
-    title: 'Управление секретами в облаке',
-    description: 'Secure secret management с HashiCorp Vault: настройка, интеграция, лучшие практики безопасности.',
+    title: { en: 'Secret Management in the Cloud', ru: 'Управление секретами в облаке', pl: 'Zarządzanie tajemnicami w chmurze' },
+    description: { en: 'Secure secret management with HashiCorp Vault: setup, integration, and best practices for security.', ru: 'Secure secret management с HashiCorp Vault: настройка, интеграция, лучшие практики безопасности.', pl: 'Bezpieczne zarządzanie tajemnicami z HashiCorp Vault: konfiguracja, integracja i najlepsze praktyki bezpieczeństwa.' },
     author: 'graweo',
     section: 'Security',
     publishedDate: '2026-04-05',
-    readTime: '11 мин',
+    readTime: { en: '11 min', ru: '11 мин', pl: '11 min' },
   },
   {
     slug: 'corporate-networks',
-    title: 'Корпоративные сети в облаке',
-    description: 'Архитектура VPC, VPN, микросегментация и compliance для enterprise. Безопасность и масштабируемость.',
+    title: { en: 'Enterprise Networks in the Cloud', ru: 'Корпоративные сети в облаке', pl: 'Sieci przedsiębiorstwa w chmurze' },
+    description: { en: 'VPC architecture, VPN, micro-segmentation, and compliance for enterprise. Security and scalability.', ru: 'Архитектура VPC, VPN, микросегментация и compliance для enterprise. Безопасность и масштабируемость.', pl: 'Architektura VPC, VPN, mikrosegmentacja i zgodność z normami dla przedsiębiorstw. Bezpieczeństwo i skalowalność.' },
     author: 'graweo',
     section: 'Infrastructure',
     publishedDate: '2026-04-12',
-    readTime: '13 мин',
+    readTime: { en: '13 min', ru: '13 мин', pl: '13 min' },
   },
 ];

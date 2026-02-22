@@ -5,12 +5,19 @@ import { useI18n } from '../context/I18nContext.tsx';
 
 type Page = 'home' | 'service' | 'contacts' | 'blog' | 'article';
 
+const getTranslation = (value: any, language: string): string => {
+  if (typeof value === 'object' && value !== null) {
+    return value[language as keyof typeof value] || value.en;
+  }
+  return value;
+};
+
 interface BlogPageProps {
   onNavigate: (page: Page, articleSlug?: string | null) => void;
 }
 
 const BlogPage: React.FC<BlogPageProps> = ({ onNavigate }) => {
-  const { t } = useI18n();
+  const { t, language } = useI18n();
 
   return (
     <div className="space-y-16 md:space-y-24">
@@ -46,15 +53,17 @@ const BlogPage: React.FC<BlogPageProps> = ({ onNavigate }) => {
                   <span className="text-xs font-medium text-cyan-400 bg-cyan-400/10 px-3 py-1 rounded-full">
                     {article.section}
                   </span>
-                  <span className="text-xs text-slate-500">{article.readTime}</span>
+                  <span className="text-xs text-slate-500">
+                    {getTranslation(article.readTime, language)}
+                  </span>
                 </div>
 
                 <h3 className="text-xl font-bold text-slate-100 group-hover:text-cyan-400 transition-colors duration-200 mb-2">
-                  {article.title}
+                  {getTranslation(article.title, language)}
                 </h3>
 
                 <p className="text-slate-400 text-sm mb-4">
-                  {article.description}
+                  {getTranslation(article.description, language)}
                 </p>
 
                 <div className="flex items-center justify-between pt-4 border-t border-slate-700/30">
@@ -69,7 +78,7 @@ const BlogPage: React.FC<BlogPageProps> = ({ onNavigate }) => {
                     onClick={() => onNavigate('article', article.slug)}
                     className="text-cyan-400 hover:text-orange-400 transition-colors duration-200 text-sm font-medium"
                   >
-                    Read More →
+                    {t('blog_read_more')}
                   </button>
                 </div>
               </div>
@@ -81,12 +90,12 @@ const BlogPage: React.FC<BlogPageProps> = ({ onNavigate }) => {
       {/* CTA Section */}
       <section className="text-center py-16 bg-gradient-to-r from-cyan-500/10 to-orange-500/10 border border-slate-700/50 rounded-lg">
         <h2 className="text-3xl font-bold text-slate-100 mb-4">
-          Need Expert Help?
+          {t('blog_cta_title')}
         </h2>
         <p className="text-slate-400 mb-8 max-w-2xl mx-auto">
-          Our team can help you implement the solutions discussed in our articles.
+          {t('blog_cta_description')}
         </p>
-        <Button>Get a Free Consultation</Button>
+        <Button onClick={() => onNavigate('contacts')}>{t('blog_free_consultation')}</Button>
       </section>
     </div>
   );
