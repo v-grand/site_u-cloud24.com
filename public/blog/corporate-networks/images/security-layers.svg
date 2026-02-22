@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 480" style="background: linear-gradient(135deg, #1a3a52 0%, #0f1f2e 100%);">
+  <defs>
+    <style>
+      .title { font-size: 18px; font-weight: bold; fill: #06b6d4; }
+      .layer { fill: #1e293b; stroke-width: 2; rx: 4; }
+      .layer-network { stroke: #06b6d4; }
+      .layer-nacl { stroke: #0ea5e9; }
+      .layer-sg { stroke: #f97316; }
+      .layer-app { stroke: #10b981; }
+      .label { font-size: 12px; fill: #e2e8f0; font-weight: bold; }
+      .sublabel { font-size: 10px; fill: #94a3b8; }
+      .description { font-size: 9px; fill: #cbd5e1; }
+      .arrow { stroke: #475569; stroke-width: 1; fill: none; }
+    </style>
+  </defs>
+
+  <!-- Title -->
+  <text x="350" y="30" text-anchor="middle" class="title">Defense in Depth: Security Layers</text>
+
+  <!-- Internet -->
+  <text x="350" y="65" text-anchor="middle" class="label" style="fill: #f97316;">Internet</text>
+  <line x1="350" y1="75" x2="350" y2="95" class="arrow"/>
+
+  <!-- Layer 1: Network Level -->
+  <rect x="80" y="95" width="540" height="70" class="layer layer-network"/>
+  <text x="100" y="115" class="label">Layer 1: Network Level</text>
+  <text x="100" y="130" class="sublabel">• NACLs (Stateless)</text>
+  <text x="100" y="145" class="sublabel">• Route tables control packet flow</text>
+  <text x="340" y="130" class="sublabel">• VPC Peering restrictions</text>
+  <text x="340" y="145" class="sublabel">• VPN connections</text>
+
+  <line x1="350" y1="165" x2="350" y2="185" class="arrow"/>
+
+  <!-- Layer 2: NACL -->
+  <rect x="80" y="185" width="540" height="70" class="layer layer-nacl"/>
+  <text x="100" y="205" class="label">Layer 2: Subnet Level (NACLs)</text>
+  <text x="100" y="220" class="sublabel">• Allow/Deny rules by IP/Port</text>
+  <text x="100" y="235" class="sublabel">• Applied to subnet traffic</text>
+  <text x="340" y="220" class="sublabel">• Stateless (ephemeral ports)</text>
+  <text x="340" y="235" class="sublabel">• Rule priority matters</text>
+
+  <line x1="350" y1="255" x2="350" y2="275" class="arrow"/>
+
+  <!-- Layer 3: Security Groups -->
+  <rect x="80" y="275" width="540" height="70" class="layer layer-sg"/>
+  <text x="100" y="295" class="label">Layer 3: Instance Level (Security Groups)</text>
+  <text x="100" y="310" class="sublabel">• Allow rules only (stateful)</text>
+  <text x="100" y="325" class="sublabel">• Applied per-instance</text>
+  <text x="340" y="310" class="sublabel">• Replies auto-allowed</text>
+  <text x="340" y="325" class="sublabel">• HTTP/HTTPS/SSH rules</text>
+
+  <line x1="350" y1="345" x2="350" y2="365" class="arrow"/>
+
+  <!-- Layer 4: Application Level -->
+  <rect x="80" y="365" width="540" height="70" class="layer layer-app"/>
+  <text x="100" y="385" class="label">Layer 4: Application Level</text>
+  <text x="100" y="400" class="sublabel">• WAF (Web Application Firewall)</text>
+  <text x="100" y="415" class="sublabel">• Rate limiting, DDoS protection</text>
+  <text x="340" y="400" class="sublabel">• Application-specific auth</text>
+  <text x="340" y="415" class="sublabel">• Encryption, API keys</text>
+
+  <!-- Example Attack Scenarios -->
+  <rect x="40" y="450" width="620" height="25" style="fill: #1e293b; stroke: #ef4444; stroke-width: 1; rx: 3;"/>
+  <text x="350" y="468" text-anchor="middle" style="font-size: 10px; fill: #ef4444; font-weight: bold;">🔒 Example: DDoS Attack Blocked at Layer 1-2 | Malware at Layer 3-4 | Credential Theft at Layer 4</text>
+</svg>
