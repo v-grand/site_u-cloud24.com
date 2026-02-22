@@ -36,6 +36,8 @@ Przeanalizowaliśmy ponad 100 projektów ML na U-Cloud 24 i utworzyliśmy prakty
 
 **Przykłady:** Intel Xeon Platinum, AMD EPYC
 
+![CPU Architecture](/blog/server-for-ml/images/cpu-architecture.svg)
+
 ```
 ┌─────────────────────────────────────┐
 │        Architektura CPU             │
@@ -72,6 +74,8 @@ Przeanalizowaliśmy ponad 100 projektów ML na U-Cloud 24 i utworzyliśmy prakty
 - NVIDIA: H100, A100, RTX 4090
 - AMD: MI300X
 - Google: TPU v4
+
+![GPU Architecture](/blog/server-for-ml/images/gpu-architecture.svg)
 
 ```
 ┌─────────────────────────────────────────┐
@@ -245,6 +249,8 @@ gpu-ml-enterprise
 
 ## 4. Przykłady Konfiguracji Frameworków
 
+![Performance Comparison](/blog/server-for-ml/images/performance-comparison.svg)
+
 ### 4.1 Benchmarki TensorFlow
 
 ```
@@ -369,6 +375,17 @@ Na CPU:
 - **Do LLM:** gpu-ml-enterprise (4x H100) — $24,999/miesiąc
 
 Wybranie złego serwera może kosztować tysiące dolarów w obliczeniach chmurowych. Zacznij od małego, testuj, mierz i skaluj.
+
+---
+
+## Powiązane Usługi U-Cloud 24
+
+Wdrażaj wybrany serwer za pomocą naszych usług:
+
+- **[VPS & Cloud Servers](/services/server)** — wynajmuj serwery w chmurze z gwarancją 99,99% dostępności
+- **[DevOps & Infrastructure](/services/devops)** — zarządzaj infrastrukturą poprzez Infrastructure as Code (Terraform, Kubernetes)
+- **[Data Analytics & ML](/services/analytics)** — kompletny stos ML z gotowymi potokami
+- **[API Integration](/services/integration)** — integracja z frameworkami ML i usługami
 
 ---
 

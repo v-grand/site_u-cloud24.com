@@ -36,6 +36,8 @@ readTime: "12 мин"
 
 **Примеры:** Intel Xeon Platinum, AMD EPYC
 
+![CPU Architecture](/blog/server-for-ml/images/cpu-architecture.svg)
+
 ```
 ┌─────────────────────────────────────┐
 │        CPU Architecture             │
@@ -72,6 +74,8 @@ readTime: "12 мин"
 - NVIDIA: H100, A100, RTX 4090
 - AMD: MI300X
 - Google: TPU v4
+
+![GPU Architecture](/blog/server-for-ml/images/gpu-architecture.svg)
 
 ```
 ┌─────────────────────────────────────────┐
@@ -245,6 +249,8 @@ gpu-ml-enterprise
 
 ## 4. Примеры конфигураций для популярных фреймворков
 
+![Performance Comparison](/blog/server-for-ml/images/performance-comparison.svg)
+
 ### 4.1 TensorFlow Benchmarks
 
 ```
@@ -369,6 +375,17 @@ Training_Time = (Data_Size / Batch_Size) × Epochs × Time_Per_Batch
 - **Для LLM:** gpu-ml-enterprise (4x H100) — $24,999/месяц
 
 Ошибка при выборе сервера может стоить вам тысяч долларов в облачных вычислениях. Начните с малого, протестируйте, измерьте и масштабируйте.
+
+---
+
+## Связанные услуги U-Cloud 24
+
+Для развёртывания выбранного сервера используйте наши услуги:
+
+- **[VPS & Cloud Servers](/services/server)** — аренда облачных серверов с гарантией 99.99% доступности
+- **[DevOps & Infrastructure](/services/devops)** — управление инфраструктурой через Infrastructure as Code (Terraform, Kubernetes)
+- **[Data Analytics & ML](/services/analytics)** — полный стек для машинного обучения с готовыми пайплайнами
+- **[API Integration](/services/integration)** — интеграция с фреймворками машинного обучения и сервисами
 
 ---
 

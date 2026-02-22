@@ -34,7 +34,7 @@ const BlogArticlePage: React.FC<BlogArticlePageProps> = ({ articleSlug, onNaviga
 
     // Load markdown content from public/blog directory with language code
     const langCode = language === 'en' ? 'en' : language === 'ru' ? 'ru' : 'pl';
-    fetch(`/blog/${article.slug}-${langCode}.md`)
+    fetch(`/blog/${article.slug}/${langCode}.md`)
       .then(response => {
         if (!response.ok) throw new Error('Failed to load article');
         return response.text();

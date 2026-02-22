@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" style="background: linear-gradient(135deg, #1a3a52 0%, #0f1f2e 100%);">
+  <defs>
+    <style>
+      .title { font-size: 16px; font-weight: bold; fill: #06b6d4; }
+      .label { font-size: 12px; fill: #cbd5e1; }
+      .box { fill: #1e293b; stroke: #0ea5e9; stroke-width: 2; }
+      .box-label { font-size: 11px; fill: #06b6d4; font-weight: bold; }
+      .arrow { stroke: #0ea5e9; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#0ea5e9" />
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="200" y="25" text-anchor="middle" class="title">CPU Architecture</text>
+
+  <!-- Control Unit -->
+  <rect x="30" y="50" width="140" height="80" class="box"/>
+  <text x="100" y="70" text-anchor="middle" class="box-label">Control Unit</text>
+  <text x="40" y="95" class="label">• Branch prediction</text>
+  <text x="40" y="115" class="label">• Instruction fetch</text>
+  <text x="40" y="135" class="label">• Memory management</text>
+
+  <!-- ALU -->
+  <rect x="230" y="50" width="140" height="80" class="box"/>
+  <text x="300" y="70" text-anchor="middle" class="box-label">ALU</text>
+  <text x="240" y="95" class="label">• Sequential ops</text>
+  <text x="240" y="115" class="label">• Complex instr</text>
+  <text x="240" y="135" class="label">• Logic gates</text>
+
+  <!-- Cache -->
+  <rect x="80" y="160" width="240" height="100" class="box"/>
+  <text x="200" y="185" text-anchor="middle" class="box-label">Memory Hierarchy</text>
+  <text x="100" y="210" class="label">L1 Cache: 32-64 KB (super fast)</text>
+  <text x="100" y="235" class="label">L2 Cache: 256 KB (fast)</text>
+  <text x="100" y="260" class="label">L3 Cache: 8-16 MB (slower, shared)</text>
+
+  <!-- Connections -->
+  <path d="M 100 130 L 100 160" class="arrow"/>
+  <path d="M 300 130 L 300 160" class="arrow"/>
+
+  <!-- Stats -->
+  <text x="200" y="290" text-anchor="middle" class="label" style="font-size: 10px; fill: #94a3b8;">
+    Sequential execution • Universal computing • Low power consumption
+  </text>
+</svg>

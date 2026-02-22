@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 350" style="background: linear-gradient(135deg, #1a3a52 0%, #0f1f2e 100%);">
+  <defs>
+    <style>
+      .title { font-size: 18px; font-weight: bold; fill: #06b6d4; }
+      .axis { stroke: #475569; stroke-width: 2; fill: none; }
+      .bar { fill: #0ea5e9; }
+      .bar-gpu { fill: #f97316; }
+      .bar-h100 { fill: #ec4899; }
+      .label { font-size: 12px; fill: #cbd5e1; }
+      .value { font-size: 11px; fill: #06b6d4; font-weight: bold; }
+    </style>
+  </defs>
+
+  <!-- Title -->
+  <text x="300" y="30" text-anchor="middle" class="title">Training Time Comparison: ImageNet ResNet-50</text>
+  <text x="300" y="50" text-anchor="middle" class="label">(Lower is Better - Time per Epoch)</text>
+
+  <!-- Grid lines -->
+  <line x1="80" y1="260" x2="550" y2="260" class="axis" style="stroke-dasharray: 5,5;"/>
+  <line x1="80" y1="80" x2="550" y2="80" class="axis" style="stroke-dasharray: 5,5;"/>
+
+  <!-- Y-Axis -->
+  <line x1="80" y1="60" x2="80" y2="280" class="axis"/>
+  <!-- X-Axis -->
+  <line x1="80" y1="280" x2="550" y2="280" class="axis"/>
+
+  <!-- Y-Axis Labels -->
+  <text x="70" y="285" text-anchor="end" class="label">0 min</text>
+  <text x="70" y="205" text-anchor="end" class="label">15 min</text>
+  <text x="70" y="125" text-anchor="end" class="label">30 min</text>
+  <text x="70" y="45" text-anchor="end" class="label">45 min</text>
+
+  <!-- Y-Axis Title -->
+  <text x="15" y="170" class="label" style="writing-mode: tb-rl; transform: rotate(180deg); display: inline-block;">Time per Epoch</text>
+
+  <!-- CPU Bar -->
+  <rect x="120" y="80" width="60" height="200" class="bar"/>
+  <text x="150" y="300" text-anchor="middle" class="label" style="font-weight: bold;">CPU</text>
+  <text x="150" y="320" text-anchor="middle" class="value">45 min</text>
+
+  <!-- GPU RTX Bar -->
+  <rect x="220" y="190" width="60" height="90" class="bar-gpu"/>
+  <text x="250" y="300" text-anchor="middle" class="label" style="font-weight: bold;">RTX 4090</text>
+  <text x="250" y="320" text-anchor="middle" class="value">3 min</text>
+
+  <!-- GPU A100 Bar -->
+  <rect x="320" y="210" width="60" height="70" class="bar-gpu"/>
+  <text x="350" y="300" text-anchor="middle" class="label" style="font-weight: bold;">A100</text>
+  <text x="350" y="320" text-anchor="middle" class="value">2 min</text>
+
+  <!-- GPU H100 Bar -->
+  <rect x="420" y="230" width="60" height="50" class="bar-h100"/>
+  <text x="450" y="300" text-anchor="middle" class="label" style="font-weight: bold;">H100</text>
+  <text x="450" y="320" text-anchor="middle" class="value">1.5 min</text>
+
+  <!-- Speedup factors -->
+  <text x="150" y="70" text-anchor="middle" class="value" style="font-size: 13px;">1x</text>
+  <text x="250" y="175" text-anchor="middle" class="value" style="font-size: 13px;">15x</text>
+  <text x="350" y="195" text-anchor="middle" class="value" style="font-size: 13px;">22x</text>
+  <text x="450" y="215" text-anchor="middle" class="value" style="font-size: 13px;">30x</text>
+
+  <!-- Legend -->
+  <rect x="480" y="85" width="12" height="12" class="bar"/>
+  <text x="500" y="95" class="label">CPU/GPU</text>
+
+  <rect x="480" y="110" width="12" height="12" class="bar-h100"/>
+  <text x="500" y="120" class="label">Latest GPU</text>
+</svg>
