@@ -10,8 +10,15 @@ interface BlogArticlePageProps {
   onNavigate: (page: Page, articleSlug?: string | null) => void;
 }
 
+const getTranslation = (value: any, language: string): string => {
+  if (typeof value === 'object' && value !== null) {
+    return value[language as keyof typeof value] || value.en;
+  }
+  return value;
+};
+
 const BlogArticlePage: React.FC<BlogArticlePageProps> = ({ articleSlug, onNavigate }) => {
-  const { t } = useI18n();
+  const { t, language } = useI18n();
   const [content, setContent] = useState<string>('');
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(false);
@@ -35,7 +42,8 @@ const BlogArticlePage: React.FC<BlogArticlePageProps> = ({ articleSlug, onNaviga
         setContent(markdown);
         setIsLoading(false);
         // Update page title
-        document.title = `U-Cloud 24 | ${article.title}`;
+        const articleTitle = getTranslation(article.title, language);
+        document.title = `U-Cloud 24 | ${articleTitle}`;
         // Scroll to top
         window.scrollTo(0, 0);
       })
@@ -49,9 +57,9 @@ const BlogArticlePage: React.FC<BlogArticlePageProps> = ({ articleSlug, onNaviga
   if (!article) {
     return (
       <div className="text-center py-32">
-        <h1 className="text-3xl font-bold text-slate-100 mb-4">Article Not Found</h1>
-        <p className="text-slate-400 mb-8">The article you're looking for doesn't exist.</p>
-        <Button onClick={() => onNavigate('blog')}>Back to Blog</Button>
+        <h1 className="text-3xl font-bold text-slate-100 mb-4">{t('blog_article_not_found')}</h1>
+        <p className="text-slate-400 mb-8">{t('blog_article_not_found_desc')}</p>
+        <Button onClick={() => onNavigate('blog')}>{t('blog_back')}</Button>
       </div>
     );
   }
@@ -59,7 +67,7 @@ const BlogArticlePage: React.FC<BlogArticlePageProps> = ({ articleSlug, onNaviga
   if (isLoading) {
     return (
       <div className="text-center py-32">
-        <h1 className="text-2xl font-bold text-slate-100 mb-4">Loading article...</h1>
+        <h1 className="text-2xl font-bold text-slate-100 mb-4">{t('blog_loading')}</h1>
         <div className="inline-block animate-spin">
           <svg className="w-8 h-8 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
@@ -72,9 +80,9 @@ const BlogArticlePage: React.FC<BlogArticlePageProps> = ({ articleSlug, onNaviga
   if (error || !content) {
     return (
       <div className="text-center py-32">
-        <h1 className="text-2xl font-bold text-slate-100 mb-4">Error loading article</h1>
-        <p className="text-slate-400 mb-8">Sorry, we couldn't load the article content.</p>
-        <Button onClick={() => onNavigate('blog')}>Back to Blog</Button>
+        <h1 className="text-2xl font-bold text-slate-100 mb-4">{t('blog_error_loading')}</h1>
+        <p className="text-slate-400 mb-8">{t('blog_error_desc')}</p>
+        <Button onClick={() => onNavigate('blog')}>{t('blog_back')}</Button>
       </div>
     );
   }
@@ -94,19 +102,21 @@ const BlogArticlePage: React.FC<BlogArticlePageProps> = ({ articleSlug, onNaviga
           <span className="text-xs font-medium text-cyan-400 bg-cyan-400/10 px-3 py-1 rounded-full">
             {article.section}
           </span>
-          <span className="text-xs text-slate-500">{article.readTime}</span>
+          <span className="text-xs text-slate-500">
+            {getTranslation(article.readTime, language)}
+          </span>
         </div>
 
         <h1 className="text-4xl md:text-5xl font-black text-slate-100 mb-6">
-          {article.title}
+          {getTranslation(article.title, language)}
         </h1>
 
         <p className="text-lg text-slate-400 mb-6">
-          {article.description}
+          {getTranslation(article.description, language)}
         </p>
 
         <div className="flex flex-wrap items-center gap-4 text-sm text-slate-500 pb-8 border-b border-slate-700/50">
-          <span>By {article.author}</span>
+          <span>{t('blog_by_author')} {article.author}</span>
           <span>•</span>
           <span>
             {new Date(article.publishedDate).toLocaleDateString('en-US', {
@@ -116,7 +126,7 @@ const BlogArticlePage: React.FC<BlogArticlePageProps> = ({ articleSlug, onNaviga
             })}
           </span>
           <span>•</span>
-          <span>{article.readTime}</span>
+          <span>{getTranslation(article.readTime, language)}</span>
         </div>
       </header>
 
@@ -133,18 +143,18 @@ const BlogArticlePage: React.FC<BlogArticlePageProps> = ({ articleSlug, onNaviga
       <footer className="mt-16 pt-8 border-t border-slate-700/50">
         <div className="bg-gradient-to-r from-cyan-500/10 to-orange-500/10 border border-slate-700/50 rounded-lg p-8 text-center">
           <h3 className="text-xl font-bold text-slate-100 mb-3">
-            Found this article helpful?
+            {t('blog_helpful_question')}
           </h3>
           <p className="text-slate-400 mb-6">
-            Get in touch with our team to discuss how we can help implement these solutions for your business.
+            {t('blog_helpful_description')}
           </p>
-          <Button>Schedule a Consultation</Button>
+          <Button onClick={() => onNavigate('contacts')}>{t('blog_schedule_consultation')}</Button>
         </div>
       </footer>
 
       {/* Related Articles */}
       <section className="mt-16">
-        <h2 className="text-2xl font-bold text-slate-100 mb-8">Related Articles</h2>
+        <h2 className="text-2xl font-bold text-slate-100 mb-8">{t('blog_related_articles')}</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {BLOG_ARTICLES.filter(
             a => a.slug !== articleSlug && a.section === article.section
@@ -157,13 +167,13 @@ const BlogArticlePage: React.FC<BlogArticlePageProps> = ({ articleSlug, onNaviga
                 onClick={() => onNavigate('article', relatedArticle.slug)}
               >
                 <h3 className="text-lg font-bold text-slate-100 group-hover:text-cyan-400 transition-colors duration-200 mb-2">
-                  {relatedArticle.title}
+                  {getTranslation(relatedArticle.title, language)}
                 </h3>
                 <p className="text-slate-400 text-sm mb-4">
-                  {relatedArticle.description}
+                  {getTranslation(relatedArticle.description, language)}
                 </p>
                 <span className="text-cyan-400 text-sm font-medium">
-                  Read More →
+                  {t('blog_read_more')}
                 </span>
               </article>
             ))}
