@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 320" style="background: linear-gradient(135deg, #1a3a52 0%, #0f1f2e 100%);">
+  <defs>
+    <style>
+      .title { font-size: 16px; font-weight: bold; fill: #f97316; }
+      .label { font-size: 12px; fill: #cbd5e1; }
+      .box { fill: #1e293b; stroke: #f97316; stroke-width: 2; }
+      .box-label { font-size: 11px; fill: #f97316; font-weight: bold; }
+      .core { fill: #ea580c; opacity: 0.7; }
+      .arrow { stroke: #f97316; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#f97316" />
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="200" y="25" text-anchor="middle" class="title">GPU Architecture</text>
+
+  <!-- CUDA Cores -->
+  <rect x="20" y="45" width="360" height="80" class="box"/>
+  <text x="200" y="65" text-anchor="middle" class="box-label">CUDA Cores: 10,000+ (Massive Parallelism)</text>
+
+  <!-- Cores visualization -->
+  <circle cx="40" cy="95" r="5" class="core"/>
+  <circle cx="60" cy="95" r="5" class="core"/>
+  <circle cx="80" cy="95" r="5" class="core"/>
+  <text x="100" y="100" class="label">...</text>
+  <circle cx="140" cy="95" r="5" class="core"/>
+  <circle cx="160" cy="95" r="5" class="core"/>
+  <circle cx="180" cy="95" r="5" class="core"/>
+
+  <circle cx="220" cy="95" r="5" class="core"/>
+  <circle cx="240" cy="95" r="5" class="core"/>
+  <circle cx="260" cy="95" r="5" class="core"/>
+  <text x="280" y="100" class="label">...</text>
+  <circle cx="320" cy="95" r="5" class="core"/>
+  <circle cx="340" cy="95" r="5" class="core"/>
+  <circle cx="360" cy="95" r="5" class="core"/>
+
+  <!-- Memory Hierarchy -->
+  <rect x="20" y="145" width="360" height="130" class="box"/>
+  <text x="200" y="165" text-anchor="middle" class="box-label">Memory Hierarchy</text>
+
+  <text x="40" y="190" class="label">Registers: 256 MB (super fast)</text>
+  <rect x="35" y="195" width="250" height="8" fill="#f97316" opacity="0.3"/>
+
+  <text x="40" y="220" class="label">Shared Memory: 96 KB (L1 cache)</text>
+  <rect x="35" y="225" width="180" height="8" fill="#f97316" opacity="0.5"/>
+
+  <text x="40" y="250" class="label">L2 Cache: 6-12 MB</text>
+  <rect x="35" y="255" width="150" height="8" fill="#f97316" opacity="0.6"/>
+
+  <text x="40" y="280" class="label">HBM: 80 GB (A100/H100) - ultra-wide bus</text>
+  <rect x="35" y="285" width="320" height="8" fill="#f97316" opacity="0.7"/>
+
+  <!-- Tensor Cores -->
+  <rect x="20" y="290" width="360" height="30" class="box" style="stroke: #ec4899; fill: none;"/>
+  <text x="200" y="310" text-anchor="middle" class="label" style="fill: #ec4899;">Tensor Cores: 16x speedup for DNN training</text>
+</svg>
