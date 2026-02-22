@@ -177,7 +177,7 @@ const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
                 onClick={() => handleNavClick('blog')}
                 className="text-slate-300 hover:text-cyan-400 transition-colors duration-300 text-sm font-medium py-2 text-left"
               >
-                Blog
+                {t('blog')}
               </button>
 
               <button
