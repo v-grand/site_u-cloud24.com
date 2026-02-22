@@ -58,10 +58,54 @@
     <priority>0.9</priority>
   </url>
 
+  <!-- Blog Hub -->
+  <url>
+    <loc>https://u-cloud24.com/blog</loc>
+    <lastmod>2026-02-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Blog Articles -->
+  <url>
+    <loc>https://u-cloud24.com/blog/server-for-ml</loc>
+    <lastmod>2023-02-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://u-cloud24.com/blog/terraform-iac</loc>
+    <lastmod>2023-03-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://u-cloud24.com/blog/vault-secrets</loc>
+    <lastmod>2023-04-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://u-cloud24.com/blog/monitoring-stack</loc>
+    <lastmod>2023-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://u-cloud24.com/blog/corporate-networks</loc>
+    <lastmod>2023-06-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!-- Contact Page -->
   <url>
     <loc>https://u-cloud24.com/contacts</loc>
-    <lastmod>2026-02-21</lastmod>
+    <lastmod>2026-02-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

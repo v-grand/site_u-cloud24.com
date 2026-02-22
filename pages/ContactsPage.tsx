@@ -1,22 +1,14 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import AnimatedElement from '../components/ui/AnimatedElement.tsx';
 import { useI18n } from '../context/I18nContext.tsx';
 
-const ContactsPage: React.FC = () => {
+interface ContactsPageProps {
+  onNavigate?: (page: 'home' | 'service' | 'contacts' | 'blog' | 'article', serviceId?: string | null) => void;
+}
+
+const ContactsPage: React.FC<ContactsPageProps> = ({ onNavigate }) => {
   const { t } = useI18n();
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // TODO: Integrate with backend or email service
-    alert('Form submission not yet configured. Please email us directly.');
-    setFormData({ name: '', email: '', message: '' });
-  };
 
   return (
     <div className="py-12 px-4 sm:px-6 lg:px-8">
@@ -72,54 +64,132 @@ const ContactsPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Contact Form */}
-      <section className="max-w-2xl mx-auto mb-16">
+      {/* Featured Blog Articles - Internal Links for SEO */}
+      <section className="max-w-5xl mx-auto mb-16">
         <AnimatedElement>
-          <div className="bg-slate-800/50 p-8 rounded-lg border border-slate-700">
-            <h2 className="text-2xl font-bold text-slate-100 mb-6">Send us a Message</h2>
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div>
-                <label className="block text-slate-300 mb-2">Name</label>
-                <input
-                  type="text"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  className="w-full px-4 py-2 bg-slate-700 border border-slate-600 rounded text-slate-100 focus:outline-none focus:border-blue-400"
-                  required
-                />
-              </div>
-              <div>
-                <label className="block text-slate-300 mb-2">Email</label>
-                <input
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  className="w-full px-4 py-2 bg-slate-700 border border-slate-600 rounded text-slate-100 focus:outline-none focus:border-blue-400"
-                  required
-                />
-              </div>
-              <div>
-                <label className="block text-slate-300 mb-2">Message</label>
-                <textarea
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  rows={5}
-                  className="w-full px-4 py-2 bg-slate-700 border border-slate-600 rounded text-slate-100 focus:outline-none focus:border-blue-400"
-                  required
-                ></textarea>
-              </div>
-              <button
-                type="submit"
-                className="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition"
-              >
-                Send Message
-              </button>
-            </form>
-          </div>
+          <h2 className="text-3xl font-bold text-slate-100 mb-8 text-center">📚 Learn from Our Blog</h2>
+          <p className="text-center text-slate-300 mb-12 max-w-3xl mx-auto">
+            Dive into our in-depth guides covering cloud infrastructure, ML operations, security best practices, and enterprise networking.
+          </p>
         </AnimatedElement>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* Article 1 */}
+          <AnimatedElement delay={300}>
+            <div className="bg-slate-800/50 p-6 rounded-lg border border-slate-700 hover:border-blue-400 transition cursor-pointer group"
+                 onClick={() => onNavigate?.('article', 'server-for-ml')}>
+              <h3 className="text-xl font-bold text-blue-400 group-hover:text-blue-300 mb-3">
+                🖥️ How to Choose a Server for ML Workloads
+              </h3>
+              <p className="text-slate-400 mb-4">
+                Complete guide to CPU vs GPU selection, architecture comparison, and configuration recommendations for different ML projects.
+              </p>
+              <span className="text-blue-400 text-sm font-semibold">Read Article →</span>
+            </div>
+          </AnimatedElement>
+
+          {/* Article 2 */}
+          <AnimatedElement delay={400}>
+            <div className="bg-slate-800/50 p-6 rounded-lg border border-slate-700 hover:border-blue-400 transition cursor-pointer group"
+                 onClick={() => onNavigate?.('article', 'terraform-iac')}>
+              <h3 className="text-xl font-bold text-blue-400 group-hover:text-blue-300 mb-3">
+                ⚙️ Terraform for ML Infrastructure
+              </h3>
+              <p className="text-slate-400 mb-4">
+                Infrastructure as Code best practices: VPC setup, EC2 instances, S3 storage, state management, and Terraform workflows.
+              </p>
+              <span className="text-blue-400 text-sm font-semibold">Read Article →</span>
+            </div>
+          </AnimatedElement>
+
+          {/* Article 3 */}
+          <AnimatedElement delay={500}>
+            <div className="bg-slate-800/50 p-6 rounded-lg border border-slate-700 hover:border-blue-400 transition cursor-pointer group"
+                 onClick={() => onNavigate?.('article', 'vault-secrets')}>
+              <h3 className="text-xl font-bold text-blue-400 group-hover:text-blue-300 mb-3">
+                🔐 Secret Management in the Cloud
+              </h3>
+              <p className="text-slate-400 mb-4">
+                HashiCorp Vault setup: dynamic secrets, authentication methods, policies, audit logging, and production patterns.
+              </p>
+              <span className="text-blue-400 text-sm font-semibold">Read Article →</span>
+            </div>
+          </AnimatedElement>
+
+          {/* Article 4 */}
+          <AnimatedElement delay={600}>
+            <div className="bg-slate-800/50 p-6 rounded-lg border border-slate-700 hover:border-blue-400 transition cursor-pointer group"
+                 onClick={() => onNavigate?.('article', 'monitoring-stack')}>
+              <h3 className="text-xl font-bold text-blue-400 group-hover:text-blue-300 mb-3">
+                📊 Monitoring ML Models in Production
+              </h3>
+              <p className="text-slate-400 mb-4">
+                Complete monitoring stack: Prometheus, Grafana, ELK Stack, data drift detection, alerting rules, and Docker deployment.
+              </p>
+              <span className="text-blue-400 text-sm font-semibold">Read Article →</span>
+            </div>
+          </AnimatedElement>
+
+          {/* Article 5 */}
+          <AnimatedElement delay={700}>
+            <div className="bg-slate-800/50 p-6 rounded-lg border border-slate-700 hover:border-blue-400 transition cursor-pointer group"
+                 onClick={() => onNavigate?.('article', 'corporate-networks')}>
+              <h3 className="text-xl font-bold text-blue-400 group-hover:text-blue-300 mb-3">
+                🌐 Enterprise Networks in the Cloud
+              </h3>
+              <p className="text-slate-400 mb-4">
+                VPC architecture, security groups, NACLs, VPN connectivity, VPC Peering, PrivateLink, and multi-AZ design.
+              </p>
+              <span className="text-blue-400 text-sm font-semibold">Read Article →</span>
+            </div>
+          </AnimatedElement>
+
+          {/* Blog Hub */}
+          <AnimatedElement delay={800}>
+            <div className="bg-slate-800/50 p-6 rounded-lg border border-slate-700 hover:border-green-400 transition cursor-pointer group"
+                 onClick={() => onNavigate?.('blog')}>
+              <h3 className="text-xl font-bold text-green-400 group-hover:text-green-300 mb-3">
+                📖 View All Blog Articles
+              </h3>
+              <p className="text-slate-400 mb-4">
+                Explore our complete library of technical articles covering cloud infrastructure, ML operations, DevOps, security, and more.
+              </p>
+              <span className="text-green-400 text-sm font-semibold">Go to Blog →</span>
+            </div>
+          </AnimatedElement>
+        </div>
+      </section>
+
+      {/* Services Section - Internal Links */}
+      <section className="max-w-5xl mx-auto mb-16">
+        <AnimatedElement>
+          <h2 className="text-3xl font-bold text-slate-100 mb-8 text-center">🚀 Our Services</h2>
+          <p className="text-center text-slate-300 mb-12 max-w-3xl mx-auto">
+            Comprehensive cloud infrastructure, development, and data solutions for your business needs.
+          </p>
+        </AnimatedElement>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {/* Services - Grid of 6 key services */}
+          {[
+            { id: 'server', name: '🖥️ Cloud Servers', desc: 'Scalable compute infrastructure with GPU support' },
+            { id: 'devops', name: '⚙️ DevOps', desc: 'Infrastructure automation and continuous deployment' },
+            { id: 'analytics', name: '📊 Data Analytics', desc: 'ML pipelines and data engineering solutions' },
+            { id: 'web', name: '🌐 Web Apps', desc: 'Full-stack web application development' },
+            { id: 'scraping', name: '🕷️ Web Scraping', desc: 'Distributed data collection and processing' },
+            { id: 'integration', name: '🔌 API Integration', desc: 'Seamless service connectivity and orchestration' }
+          ].map((service, idx) => (
+            <AnimatedElement key={service.id} delay={300 + idx * 100}>
+              <div className="bg-slate-800/50 p-6 rounded-lg border border-slate-700 hover:border-orange-400 transition cursor-pointer group"
+                   onClick={() => onNavigate?.('service', service.id)}>
+                <h3 className="text-lg font-bold text-slate-100 group-hover:text-orange-400 mb-2 transition">
+                  {service.name}
+                </h3>
+                <p className="text-slate-400 text-sm">
+                  {service.desc}
+                </p>
+              </div>
+            </AnimatedElement>
+          ))}
+        </div>
       </section>
 
       {/* FAQ Section */}
