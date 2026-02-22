@@ -122,7 +122,8 @@ export const I18N_STRINGS: Translations = {
 
 export interface BlogArticle {
   slug: string;
-  title: { en: string; ru: string; pl: string };
+  title: { en: string; ru: string; pl: string };  // Display title (H1)
+  metaTitle: { en: string; ru: string; pl: string };  // SEO title (<70 chars)
   description: { en: string; ru: string; pl: string };
   author: string;
   section: string;
@@ -134,7 +135,8 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   {
     slug: 'server-for-ml',
     title: { en: 'How to Choose a Server for ML Workloads: CPU vs GPU', ru: 'Как выбрать сервер для ML-нагрузок: CPU vs GPU', pl: 'Jak wybrać serwer do obciążeń ML: CPU vs GPU' },
-    description: { en: 'Complete guide to choosing a cloud server for machine learning: comparing processors, GPUs, memory, and recommendations for different ML tasks.', ru: 'Полное руководство по выбору облачного сервера для машинного обучения: сравнение процессоров, видеокарт, памяти и рекомендации для разных задач ML.', pl: 'Pełny przewodnik do wyboru serwera w chmurze dla uczenia maszynowego: porównanie procesorów, procesorów graficznych, pamięci i zalecenia dla różnych zadań ML.' },
+    metaTitle: { en: 'ML Server Guide: CPU vs GPU | U-Cloud 24', ru: 'ML сервер: CPU vs GPU | U-Cloud 24', pl: 'Serwer ML: CPU vs GPU | U-Cloud 24' },
+    description: { en: 'Complete guide to choosing a cloud server for machine learning: comparing processors, GPUs, memory, and recommendations for different ML tasks.', ru: 'Полное руководство по выбору облачного сервера для машинского обучения: сравнение процессоров, видеокарт, памяти и рекомендации для разных задач ML.', pl: 'Pełny przewodnik do wyboru serwera w chmurze dla uczenia maszynowego: porównanie procesorów, procesorów graficznych, pamięci i zalecenia dla różnych zadań ML.' },
     author: 'graweo',
     section: 'Cloud Servers',
     publishedDate: '2026-03-15',
@@ -143,6 +145,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   {
     slug: 'terraform-iac',
     title: { en: 'Terraform for ML Infrastructure', ru: 'Terraform для ML инфраструктуры', pl: 'Terraform do infrastruktury ML' },
+    metaTitle: { en: 'Terraform Infrastructure as Code | ML Deployment', ru: 'Terraform IaC | Развёртывание ML инфраструктуры', pl: 'Terraform IaC | Wdrażanie infrastruktury ML' },
     description: { en: 'Manage cloud infrastructure as code. Complete guide for setting up GPU servers, Kubernetes, and auto-scaling with Terraform.', ru: 'Управляйте облачной инфраструктурой как кодом. Complete guide для настройки GPU серверов, Kubernetes и автомасштабирования.', pl: 'Zarządzaj infrastrukturą chmury jako kodem. Kompletny przewodnik do konfiguracji serwerów GPU, Kubernetes i automatycznego skalowania.' },
     author: 'graweo',
     section: 'Infrastructure',
@@ -152,6 +155,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   {
     slug: 'monitoring-stack',
     title: { en: 'Monitoring ML Models in Production', ru: 'Мониторинг ML моделей в production', pl: 'Monitorowanie modeli ML w produkcji' },
+    metaTitle: { en: 'ML Model Monitoring | Prometheus, Grafana, ELK Stack', ru: 'Мониторинг ML | Prometheus, Grafana, ELK', pl: 'Monitorowanie ML | Prometheus, Grafana, ELK' },
     description: { en: 'Set up a complete monitoring stack: Prometheus, Grafana, ELK for tracking models, infrastructure, and anomalies.', ru: 'Настройте полный стек мониторинга: Prometheus, Grafana, ELK для отслеживания моделей, инфраструктуры и аномалий.', pl: 'Skonfiguruj kompletny stos monitorowania: Prometheus, Grafana, ELK do śledzenia modeli, infrastruktury i anomalii.' },
     author: 'graweo',
     section: 'DevOps',
@@ -161,6 +165,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   {
     slug: 'vault-secrets',
     title: { en: 'Secret Management in the Cloud', ru: 'Управление секретами в облаке', pl: 'Zarządzanie tajemnicami w chmurze' },
+    metaTitle: { en: 'Vault Secret Management | HashiCorp Cloud Security', ru: 'Управление секретами | HashiCorp Vault', pl: 'Zarządzanie tajemnicami | HashiCorp Vault' },
     description: { en: 'Secure secret management with HashiCorp Vault: setup, integration, and best practices for security.', ru: 'Secure secret management с HashiCorp Vault: настройка, интеграция, лучшие практики безопасности.', pl: 'Bezpieczne zarządzanie tajemnicami z HashiCorp Vault: konfiguracja, integracja i najlepsze praktyki bezpieczeństwa.' },
     author: 'graweo',
     section: 'Security',
@@ -170,6 +175,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   {
     slug: 'corporate-networks',
     title: { en: 'Enterprise Networks in the Cloud', ru: 'Корпоративные сети в облаке', pl: 'Sieci przedsiębiorstwa w chmurze' },
+    metaTitle: { en: 'VPC Enterprise Networks | Cloud Security & Compliance', ru: 'VPC сети | Безопасность облака', pl: 'Sieci VPC | Bezpieczeństwo chmury' },
     description: { en: 'VPC architecture, VPN, micro-segmentation, and compliance for enterprise. Security and scalability.', ru: 'Архитектура VPC, VPN, микросегментация и compliance для enterprise. Безопасность и масштабируемость.', pl: 'Architektura VPC, VPN, mikrosegmentacja i zgodność z normami dla przedsiębiorstw. Bezpieczeństwo i skalowalność.' },
     author: 'graweo',
     section: 'Infrastructure',

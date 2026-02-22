@@ -42,9 +42,9 @@ const BlogArticlePage: React.FC<BlogArticlePageProps> = ({ articleSlug, onNaviga
       .then(markdown => {
         setContent(markdown);
         setIsLoading(false);
-        // Update page title
-        const articleTitle = getTranslation(article.title, language);
-        document.title = `U-Cloud 24 | ${articleTitle}`;
+        // Update page title with SEO meta title
+        const articleMetaTitle = getTranslation(article.metaTitle, language);
+        document.title = articleMetaTitle;
         // Scroll to top
         window.scrollTo(0, 0);
       })
