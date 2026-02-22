@@ -90,6 +90,11 @@ export const I18N_STRINGS: Translations = {
   service_web3_features: { en: 'Smart Contract Development: Solidity, Vyper | Smart Contract Audit (security analysis) | DeFi Protocol Design: AMMs, lending, staking | NFT Development: ERC721, ERC1155 minting & marketplaces | Wallet Integration: MetaMask, WalletConnect, Ledger | Token Standards: ERC20, ERC721, ERC1155 | Cross-chain Bridges & Interoperability | Gas Optimization & Cost Reduction | Chainlink Integration (oracles, VRF) | Frontend: React/Web3.js/Ethers.js integration | Subgraph Indexing (The Graph) | Web3 Infrastructure: IPFS, Arweave | Multi-chain deployment | Security audits by tier-1 firms | Testnet & mainnet deployment', ru: 'Разработка Solidity и Vyper | Аудит смарт-контрактов (анализ безопасности) | DeFi протоколы: AMM, lending, staking | NFT разработка: ERC721, ERC1155 | Интеграция кошельков: MetaMask, WalletConnect, Ledger | Token стандарты: ERC20, ERC721, ERC1155 | Межцепочковые мосты | Оптимизация газа | Chainlink интеграция (oracles, VRF) | Frontend: React/Web3.js/Ethers.js | Subgraph индексирование (The Graph) | Web3 инфраструктура: IPFS, Arweave | Развёртывание на несколько цепей | Аудиты безопасности | Testnet и mainnet развёртывание', pl: 'Programowanie Solidity i Vyper | Audyt inteligentnych kontraktów (analiza bezpieczeństwa) | Protokoły DeFi: AMM, lending, staking | Rozwój NFT: ERC721, ERC1155 | Integracja portfela: MetaMask, WalletConnect, Ledger | Standardy tokenów: ERC20, ERC721, ERC1155 | Mosty cross-chain | Optymalizacja gazu | Integracja Chainlink (oracles, VRF) | Frontend: React/Web3.js/Ethers.js | Indeksowanie Subgraph (The Graph) | Infrastruktura Web3: IPFS, Arweave' },
   service_web3_usecase: { en: 'Case Study: DeFi Protocol launched on Ethereum & Polygon managing $500M+ TVL with 100K+ daily active users. Smart contracts developed in Solidity, audited by CertiK (tier-1 firm). Features: automated market maker (AMM), yield farming, staking. Daily transactions: 1M+, zero security incidents since launch (2 years). Token: $DEFI, market cap $2B+. Infrastructure: Chainlink oracles for price feeds, IPFS for metadata. Frontend: Next.js, Web3.js. Annual revenue: $10M+ from protocol fees. Community: 50K+ Discord members, 100K+ Twitter followers.', ru: 'Кейс: DeFi протокол запущен на Ethereum & Polygon с управлением $500M+ TVL и 100K+ ежедневно активных пользователей. Смарт-контракты на Solidity, аудит CertiK (уровень 1). Функции: automated market maker (AMM), yield farming, staking. Ежедневные транзакции: 1M+, ноль инцидентов безопасности с момента запуска (2 года). Токен: $DEFI, капитализация $2B+. Инфраструктура: Chainlink oracles для цен, IPFS для метаданных.', pl: 'Studium przypadku: Protokół DeFi uruchomiony na Ethereum & Polygon zarządzający 500M+ TVL z 100K+ codziennymi aktywnymi użytkownikami. Inteligentne kontrakty w Solidity, audyt CertiK (firma tier-1). Funkcje: automated market maker (AMM), yield farming, staking. Dzienne transakcje: 1M+, zero incydentów bezpieczeństwa od momentu uruchomienia (2 lata). Token: $DEFI, kapitalizacja rynkowa 2B$+. Infrastruktura: Chainlink oracles, IPFS na metadane.' },
 
+  // Blog Pages
+  blog_title: { en: 'Tech Insights & Cloud Blog', ru: 'Блог облачных технологий и инсайтов', pl: 'Blog techniczny i cloudu' },
+  blog_subtitle: { en: 'Deep-dive articles on cloud infrastructure, DevOps, ML, Web3, and enterprise solutions. Written by industry experts.', ru: 'Подробные статьи об облачной инфраструктуре, DevOps, ML, Web3 и корпоративных решениях. Написано экспертами отрасли.', pl: 'Artykuły pogłębiające się w infrastrukturę chmury, DevOps, ML, Web3 i rozwiązania dla przedsiębiorstw. Napisane przez ekspertów branży.' },
+  blog_back: { en: 'Back to Blog', ru: 'Вернуться в блог', pl: 'Powrót do bloga' },
+
   // Contacts Page
   contacts_title: { en: 'Contact Us', ru: 'Свяжитесь с нами', pl: 'Skontaktuj się z nami' },
   contacts_description: { en: 'Have questions about our services? Reach out to our team. We provide 24/7 support and free consultations for enterprise clients.', ru: 'Есть вопросы о наших услугах? Свяжитесь с нашей командой. Мы предоставляем поддержку 24/7 и бесплатные консультации для корпоративных клиентов.', pl: 'Masz pytania o nasze usługi? Skontaktuj się z naszym zespołem. Zapewniamy wsparcie 24/7 i bezpłatne konsultacje dla klientów korporacyjnych.' },
@@ -97,3 +102,61 @@ export const I18N_STRINGS: Translations = {
   support_email: { en: '24/7 Support', ru: 'Поддержка 24/7', pl: 'Wsparcie 24/7' },
   sales_email: { en: 'Enterprise Sales', ru: 'Продажи', pl: 'Sprzedaż' },
 };
+
+export interface BlogArticle {
+  slug: string;
+  title: string;
+  description: string;
+  author: string;
+  section: string;
+  publishedDate: string;
+  readTime: string;
+}
+
+export const BLOG_ARTICLES: BlogArticle[] = [
+  {
+    slug: 'server-for-ml',
+    title: 'Как выбрать сервер для ML-нагрузок: CPU vs GPU',
+    description: 'Полное руководство по выбору облачного сервера для машинного обучения: сравнение процессоров, видеокарт, памяти и рекомендации для разных задач ML.',
+    author: 'graweo',
+    section: 'Cloud Servers',
+    publishedDate: '2026-03-15',
+    readTime: '12 мин',
+  },
+  {
+    slug: 'terraform-iac',
+    title: 'Terraform для ML инфраструктуры',
+    description: 'Управляйте облачной инфраструктурой как кодом. Complete guide для настройки GPU серверов, Kubernetes и автомасштабирования.',
+    author: 'graweo',
+    section: 'Infrastructure',
+    publishedDate: '2026-03-22',
+    readTime: '15 мин',
+  },
+  {
+    slug: 'monitoring-stack',
+    title: 'Мониторинг ML моделей в production',
+    description: 'Настройте полный стек мониторинга: Prometheus, Grafana, ELK для отслеживания моделей, инфраструктуры и аномалий.',
+    author: 'graweo',
+    section: 'DevOps',
+    publishedDate: '2026-03-29',
+    readTime: '14 мин',
+  },
+  {
+    slug: 'vault-secrets',
+    title: 'Управление секретами в облаке',
+    description: 'Secure secret management с HashiCorp Vault: настройка, интеграция, лучшие практики безопасности.',
+    author: 'graweo',
+    section: 'Security',
+    publishedDate: '2026-04-05',
+    readTime: '11 мин',
+  },
+  {
+    slug: 'corporate-networks',
+    title: 'Корпоративные сети в облаке',
+    description: 'Архитектура VPC, VPN, микросегментация и compliance для enterprise. Безопасность и масштабируемость.',
+    author: 'graweo',
+    section: 'Infrastructure',
+    publishedDate: '2026-04-12',
+    readTime: '13 мин',
+  },
+];
