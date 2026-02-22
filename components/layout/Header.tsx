@@ -6,7 +6,7 @@ import { useI18n } from '../../context/I18nContext.tsx';
 import { SERVICES } from '../../constants.ts';
 
 // Define Page type locally or import if it's in a shared types file
-type Page = 'home' | 'service' | 'contacts';
+type Page = 'home' | 'service' | 'contacts' | 'blog' | 'article';
 
 interface HeaderProps {
   onNavigate: (page: Page, serviceId?: string | null) => void;
@@ -74,6 +74,13 @@ const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
                 ))}
               </div>
             </div>
+
+            <button
+              onClick={() => handleNavClick('blog')}
+              className="text-slate-300 hover:text-cyan-400 transition-colors duration-300 text-sm font-medium"
+            >
+              Blog
+            </button>
 
             <button
               onClick={() => handleNavClick('contacts')}
@@ -165,6 +172,13 @@ const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
                   </div>
                 )}
               </div>
+
+              <button
+                onClick={() => handleNavClick('blog')}
+                className="text-slate-300 hover:text-cyan-400 transition-colors duration-300 text-sm font-medium py-2 text-left"
+              >
+                Blog
+              </button>
 
               <button
                 onClick={() => handleNavClick('contacts')}

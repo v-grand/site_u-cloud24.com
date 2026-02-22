@@ -4,11 +4,11 @@ import Header from './Header.tsx';
 import Footer from './Footer.tsx';
 
 // Define Page type locally or import if it's in a shared types file
-type Page = 'home' | 'service' | 'contacts';
+type Page = 'home' | 'service' | 'contacts' | 'blog' | 'article';
 
 interface LayoutProps {
   children: React.ReactNode;
-  onNavigate: (page: Page, serviceId?: string | null) => void;
+  onNavigate: (page: Page, id?: string | null) => void;
 }
 
 const Layout: React.FC<LayoutProps> = ({ children, onNavigate }) => {

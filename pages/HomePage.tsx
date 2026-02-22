@@ -7,7 +7,7 @@ import AnimatedElement from '../components/ui/AnimatedElement.tsx';
 import { useI18n } from '../context/I18nContext.tsx';
 
 // Define Page type locally or import if it's in a shared types file
-type Page = 'home' | 'service' | 'contacts';
+type Page = 'home' | 'service' | 'contacts' | 'blog' | 'article';
 
 interface HomePageProps {
   onNavigate: (page: Page, serviceId?: string | null) => void;
