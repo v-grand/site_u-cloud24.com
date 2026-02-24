@@ -44,7 +44,98 @@ const BlogArticlePage: React.FC<BlogArticlePageProps> = ({ articleSlug, onNaviga
         setIsLoading(false);
         // Update page title with SEO meta title
         const articleMetaTitle = getTranslation(article.metaTitle, language);
+        const articleDescription = getTranslation(article.description, language);
+        const articleTitle = getTranslation(article.title, language);
         document.title = articleMetaTitle;
+
+        // Update meta tags for SEO and social sharing
+        let metaDescription = document.querySelector('meta[name="description"]') as HTMLMetaElement;
+        if (!metaDescription) {
+          metaDescription = document.createElement('meta') as HTMLMetaElement;
+          metaDescription.name = 'description';
+          document.head.appendChild(metaDescription);
+        }
+        metaDescription.content = articleDescription;
+
+        // Open Graph tags for social sharing
+        const updateMetaTag = (property: string, content: string) => {
+          let tag = document.querySelector(`meta[property="${property}"]`) as HTMLMetaElement;
+          if (!tag) {
+            tag = document.createElement('meta') as HTMLMetaElement;
+            tag.setAttribute('property', property);
+            document.head.appendChild(tag);
+          }
+          tag.setAttribute('content', content);
+        };
+
+        updateMetaTag('og:title', articleTitle);
+        updateMetaTag('og:description', articleDescription);
+        updateMetaTag('og:type', 'article');
+        updateMetaTag('og:url', `https://u-cloud24.com/blog/${article.slug}`);
+        updateMetaTag('og:image', 'https://u-cloud24.com/u-cloud24-logo.png');
+
+        // Twitter Card tags
+        const updateTwitterTag = (name: string, content: string) => {
+          let tag = document.querySelector(`meta[name="${name}"]`) as HTMLMetaElement;
+          if (!tag) {
+            tag = document.createElement('meta') as HTMLMetaElement;
+            tag.name = name;
+            document.head.appendChild(tag);
+          }
+          tag.content = content;
+        };
+
+        updateTwitterTag('twitter:card', 'summary_large_image');
+        updateTwitterTag('twitter:title', articleTitle);
+        updateTwitterTag('twitter:description', articleDescription);
+        updateTwitterTag('twitter:image', 'https://u-cloud24.com/u-cloud24-logo.png');
+
+        // Add TechArticle schema.org structured data for SEO
+        const wordCount = markdown.split(/\s+/).length;
+        const schema = {
+          '@context': 'https://schema.org',
+          '@type': 'TechArticle',
+          headline: getTranslation(article.title, language),
+          description: getTranslation(article.description, language),
+          author: {
+            '@type': 'Person',
+            name: article.author
+          },
+          datePublished: article.publishedDate,
+          dateModified: article.publishedDate,
+          image: {
+            '@type': 'ImageObject',
+            url: 'https://u-cloud24.com/u-cloud24-logo.png',
+            width: 1200,
+            height: 630
+          },
+          inLanguage: langCode,
+          wordCount: wordCount,
+          proficiencyLevel: 'Advanced',
+          articleBody: markdown.substring(0, 500) + '...',
+          keywords: getTranslation(article.metaTitle, language),
+          publisher: {
+            '@type': 'Organization',
+            name: 'U-Cloud 24',
+            logo: {
+              '@type': 'ImageObject',
+              url: 'https://u-cloud24.com/u-cloud24-logo.png'
+            }
+          }
+        };
+
+        // Remove existing schema tag if present
+        const existingScript = document.querySelector('script[type="application/ld+json"]');
+        if (existingScript) {
+          existingScript.remove();
+        }
+
+        // Create and inject schema script tag
+        const schemaScript = document.createElement('script');
+        schemaScript.type = 'application/ld+json';
+        schemaScript.textContent = JSON.stringify(schema);
+        document.head.appendChild(schemaScript);
+
         // Scroll to top
         window.scrollTo(0, 0);
       })
@@ -53,7 +144,7 @@ const BlogArticlePage: React.FC<BlogArticlePageProps> = ({ articleSlug, onNaviga
         setError(true);
         setIsLoading(false);
       });
-  }, [articleSlug, article]);
+  }, [articleSlug, article, language]);
 
   if (!article) {
     return (
