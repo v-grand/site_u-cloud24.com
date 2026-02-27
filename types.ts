@@ -13,7 +13,7 @@ export interface ServiceContent {
   useCase: string;
 }
 
-export type Language = 'en' | 'ru' | 'pl';
+export type Language = 'en' | 'ru' | 'pl' | 'nl';
 
 export type Translations = {
   [key: string]: {
