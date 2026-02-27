@@ -1,67 +1,51 @@
 
-import React, { useState, useEffect, useMemo } from 'react';
-import { I18nProvider, useI18n } from './context/I18nContext.tsx';
+import React, { useState } from 'react';
+import { Routes, Route, useNavigate } from 'react-router-dom';
+import { I18nProvider } from './context/I18nContext.tsx';
 import Layout from './components/layout/Layout.tsx';
 import HomePage from './pages/HomePage.tsx';
 import ServicePage from './pages/ServicePage.tsx';
 import ContactsPage from './pages/ContactsPage.tsx';
 import BlogPage from './pages/BlogPage.tsx';
 import BlogArticlePage from './pages/BlogArticlePage.tsx';
-import { SERVICES } from './constants.ts';
 
 type Page = 'home' | 'service' | 'contacts' | 'blog' | 'article';
 
 const AppContent: React.FC = () => {
-    const [currentPage, setCurrentPage] = useState<Page>('home');
-    const [currentServiceId, setCurrentServiceId] = useState<string | null>(null);
-    const [currentArticleSlug, setCurrentArticleSlug] = useState<string | null>(null);
     const [animationClass, setAnimationClass] = useState('opacity-100');
-    const { t } = useI18n();
+    const navigate = useNavigate();
 
     const navigateTo = (page: Page, id: string | null = null) => {
         setAnimationClass('opacity-0');
         setTimeout(() => {
-            setCurrentPage(page);
-            if (page === 'service') {
-                setCurrentServiceId(id);
-            } else if (page === 'article') {
-                setCurrentArticleSlug(id);
+            if (page === 'home') {
+                navigate('/');
+            } else if (page === 'service' && id) {
+                navigate(`/services/${id}`);
+            } else if (page === 'article' && id) {
+                navigate(`/blog/${id}`);
+            } else if (page === 'blog') {
+                navigate('/blog');
+            } else if (page === 'contacts') {
+                navigate('/contacts');
             }
             window.scrollTo(0, 0);
-            setAnimationClass('opacity-100');
-        }, 300); // Match transition duration
+            setTimeout(() => {
+                setAnimationClass('opacity-100');
+            }, 50);
+        }, 300);
     };
-
-    const currentService = useMemo(() => {
-        return SERVICES.find(s => s.id === currentServiceId) || null;
-    }, [currentServiceId]);
-
-    useEffect(() => {
-        let pageTitle = 'U-Cloud 24';
-        if (currentPage === 'service' && currentService) {
-            pageTitle = `U-Cloud 24 | ${t(currentService.titleKey)}`;
-        } else if (currentPage === 'blog') {
-            pageTitle = `U-Cloud 24 | ${t('blog_title')}`;
-        } else if (currentPage === 'contacts') {
-            pageTitle = `U-Cloud 24 | ${t('contacts_title')}`;
-        } else if (currentPage === 'home') {
-            pageTitle = `U-Cloud 24 | ${t('home')}`;
-        }
-        document.title = pageTitle;
-    }, [currentPage, currentService, t]);
 
     return (
         <Layout onNavigate={navigateTo}>
             <main className={`transition-opacity duration-300 ${animationClass}`}>
-                {currentPage === 'home' && <HomePage onNavigate={navigateTo} />}
-                {currentPage === 'service' && currentServiceId && (
-                    <ServicePage serviceId={currentServiceId} onNavigate={navigateTo} />
-                )}
-                {currentPage === 'blog' && <BlogPage onNavigate={navigateTo} />}
-                {currentPage === 'article' && currentArticleSlug && (
-                    <BlogArticlePage articleSlug={currentArticleSlug} onNavigate={navigateTo} />
-                )}
-                {currentPage === 'contacts' && <ContactsPage />}
+                <Routes>
+                    <Route path="/" element={<HomePage onNavigate={navigateTo} />} />
+                    <Route path="/services/:serviceId" element={<ServicePage onNavigate={navigateTo} />} />
+                    <Route path="/blog" element={<BlogPage onNavigate={navigateTo} />} />
+                    <Route path="/blog/:slug" element={<BlogArticlePage onNavigate={navigateTo} />} />
+                    <Route path="/contacts" element={<ContactsPage onNavigate={navigateTo} />} />
+                </Routes>
             </main>
         </Layout>
     );

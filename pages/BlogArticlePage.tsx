@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import { BLOG_ARTICLES } from '../constants.ts';
 import Button from '../components/ui/Button.tsx';
 import { useI18n } from '../context/I18nContext.tsx';
@@ -6,8 +7,7 @@ import { useI18n } from '../context/I18nContext.tsx';
 type Page = 'home' | 'service' | 'contacts' | 'blog' | 'article';
 
 interface BlogArticlePageProps {
-  articleSlug: string;
-  onNavigate: (page: Page, articleSlug?: string | null) => void;
+  onNavigate?: (page: Page, id?: string | null) => void;
 }
 
 const getTranslation = (value: any, language: string): string => {
@@ -17,13 +17,14 @@ const getTranslation = (value: any, language: string): string => {
   return value;
 };
 
-const BlogArticlePage: React.FC<BlogArticlePageProps> = ({ articleSlug, onNavigate }) => {
+const BlogArticlePage: React.FC<BlogArticlePageProps> = ({ onNavigate }) => {
+  const { slug } = useParams<{ slug: string }>();
   const { t, language } = useI18n();
   const [content, setContent] = useState<string>('');
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(false);
 
-  const article = BLOG_ARTICLES.find(a => a.slug === articleSlug);
+  const article = BLOG_ARTICLES.find(a => a.slug === slug);
 
   useEffect(() => {
     if (!article) {
@@ -144,14 +145,14 @@ const BlogArticlePage: React.FC<BlogArticlePageProps> = ({ articleSlug, onNaviga
         setError(true);
         setIsLoading(false);
       });
-  }, [articleSlug, article, language]);
+  }, [slug, article, language]);
 
   if (!article) {
     return (
       <div className="text-center py-32">
         <h1 className="text-3xl font-bold text-slate-100 mb-4">{t('blog_article_not_found')}</h1>
         <p className="text-slate-400 mb-8">{t('blog_article_not_found_desc')}</p>
-        <Button onClick={() => onNavigate('blog')}>{t('blog_back')}</Button>
+        <Button onClick={() => onNavigate?.('blog')}>{t('blog_back')}</Button>
       </div>
     );
   }
@@ -174,7 +175,7 @@ const BlogArticlePage: React.FC<BlogArticlePageProps> = ({ articleSlug, onNaviga
       <div className="text-center py-32">
         <h1 className="text-2xl font-bold text-slate-100 mb-4">{t('blog_error_loading')}</h1>
         <p className="text-slate-400 mb-8">{t('blog_error_desc')}</p>
-        <Button onClick={() => onNavigate('blog')}>{t('blog_back')}</Button>
+        <Button onClick={() => onNavigate?.('blog')}>{t('blog_back')}</Button>
       </div>
     );
   }
@@ -184,7 +185,7 @@ const BlogArticlePage: React.FC<BlogArticlePageProps> = ({ articleSlug, onNaviga
       {/* Article Header */}
       <header className="mb-12">
         <button
-          onClick={() => onNavigate('blog')}
+          onClick={() => onNavigate?.('blog')}
           className="text-cyan-400 hover:text-orange-400 transition-colors duration-200 text-sm font-medium mb-6 inline-flex items-center"
         >
           ← {t('blog_back')}
@@ -240,7 +241,7 @@ const BlogArticlePage: React.FC<BlogArticlePageProps> = ({ articleSlug, onNaviga
           <p className="text-slate-400 mb-6">
             {t('blog_helpful_description')}
           </p>
-          <Button onClick={() => onNavigate('contacts')}>{t('blog_schedule_consultation')}</Button>
+          <Button onClick={() => onNavigate?.('contacts')}>{t('blog_schedule_consultation')}</Button>
         </div>
       </footer>
 
@@ -249,14 +250,14 @@ const BlogArticlePage: React.FC<BlogArticlePageProps> = ({ articleSlug, onNaviga
         <h2 className="text-2xl font-bold text-slate-100 mb-8">{t('blog_related_articles')}</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {BLOG_ARTICLES.filter(
-            a => a.slug !== articleSlug && a.section === article.section
+            a => a.slug !== slug && a.section === article.section
           )
             .slice(0, 2)
             .map(relatedArticle => (
               <article
                 key={relatedArticle.slug}
                 className="group bg-slate-800/30 border border-slate-700/50 rounded-lg p-6 hover:border-cyan-400/50 transition-all duration-300 cursor-pointer"
-                onClick={() => onNavigate('article', relatedArticle.slug)}
+                onClick={() => onNavigate?.('article', relatedArticle.slug)}
               >
                 <h3 className="text-lg font-bold text-slate-100 group-hover:text-cyan-400 transition-colors duration-200 mb-2">
                   {getTranslation(relatedArticle.title, language)}

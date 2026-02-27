@@ -1,16 +1,17 @@
 
 import React from 'react';
+import { useParams } from 'react-router-dom';
 import { SERVICES } from '../constants.ts';
 import { useI18n } from '../context/I18nContext.tsx';
 import AnimatedElement from '../components/ui/AnimatedElement.tsx';
 import Button from '../components/ui/Button.tsx';
 
 interface ServicePageProps {
-  serviceId: string;
-  onNavigate?: (page: 'home' | 'service' | 'contacts', serviceId?: string | null) => void;
+  onNavigate?: (page: 'home' | 'service' | 'contacts' | 'blog' | 'article', id?: string | null) => void;
 }
 
-const ServicePage: React.FC<ServicePageProps> = ({ serviceId, onNavigate }) => {
+const ServicePage: React.FC<ServicePageProps> = ({ onNavigate }) => {
+  const { serviceId } = useParams<{ serviceId: string }>();
   const { t } = useI18n();
   const serviceInfo = SERVICES.find(s => s.id === serviceId);
 
