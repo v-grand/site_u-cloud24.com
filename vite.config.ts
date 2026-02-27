@@ -16,8 +16,9 @@ export default defineConfig({
       },
     },
   },
-  // Cloudflare Pages compatibility
+  // SPA routing configuration for dev server
   server: {
-    middlewareMode: true,
+    middlewareMode: false,
+    historyApiFallback: true,
   },
 });
