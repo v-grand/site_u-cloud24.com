@@ -194,4 +194,14 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     publishedDate: '2025-04-19',
     readTime: { en: '16 min', ru: '16 мин', pl: '16 min', nl: '16 min' },
   },
+  {
+    slug: 'ai-agents-architecture',
+    title: { en: 'AI Agent Architecture: From Tools to Multi-Step Systems', ru: 'Архитектура AI-агентов: от инструментов к многошаговым системам', pl: 'Architektura agentów AI: od narzędzi do systemów wieloetapowych', nl: 'Architectuur van AI-agenten: van gereedschappen naar meerstapssystemen' },
+    metaTitle: { en: 'AI Agents Architecture | LangChain, CrewAI, AutoGen', ru: 'Архитектура AI-агентов | LangChain, CrewAI, AutoGen', pl: 'Architektura agentów AI | LangChain, CrewAI, AutoGen', nl: 'AI-agentarchitectuur | LangChain, CrewAI, AutoGen' },
+    description: { en: 'Comprehensive guide to AI agent architecture: frameworks, tool systems, reasoning strategies, and production-ready examples using LangChain, CrewAI, and AutoGen.', ru: 'Полное руководство по архитектуре AI-агентов: фреймворки, системы инструментов, стратегии reasoning и production-ready примеры.', pl: 'Pełny przewodnik architektuры agentów AI: frameworki, systemy narzędzi, strategie rozumowania i gotowe do produkcji przykłady.', nl: 'Uitgebreide gids voor AI-agentarchitectuur: kaders, gereedschapssystemen, redeneringstrategieën en productie-ready voorbeelden.' },
+    author: 'graweo',
+    section: 'AI Agents',
+    publishedDate: '2025-04-26',
+    readTime: { en: '18 min', ru: '18 мин', pl: '18 min', nl: '18 min' },
+  },
 ];
